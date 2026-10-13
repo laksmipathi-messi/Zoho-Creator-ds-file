@@ -1,0 +1,3488 @@
+/*
+ * Author       : mkmtraining242
+ * Generated on : 13-Oct-2026 12:28:27
+ * Version      : 1.0
+ */
+ application "GEAR BOX & CO "
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Brand_details
+		{
+			displayname = "Brand details"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Brand_Name
+			(
+    			type = text
+				displayname = "Brand Name "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Brand_Vendor
+			(
+    			type = text
+				displayname = "Brand Vendor "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Brand_Product_Details
+		{
+			displayname = "Brand Product Details"
+			success message = "Brand Product Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Brand_Name
+			(
+				type = picklist	
+				displayname = "Brand Name "
+				values  = Brand_details.ID
+    			displayformat = [Brand_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Product_Name
+			(
+    			type = text
+				displayname = "Product Name "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Price
+			(
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Customer_details
+		{
+			displayname = "Customer details"
+			success message = "Customer Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Customer_ID
+			(
+    			type = text
+				displayname = "Customer ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Customer_Name
+			(
+    			type = name
+				displayname = "Customer  Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Status
+			(
+				type = radiobuttons
+				displayname = "Status "
+				maxchar = 100
+				values = {"New Customer","Exitsing  Customer"}
+				layout = 2
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			Zoho_book_ID
+			(
+    			type = text
+				displayname = "Zoho book ID"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 3   
+				width = medium
+				personal data = true
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Existing_master
+		{
+			displayname = "Existing  master"
+			success message = "Master Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			serial_no
+			(
+				type = number
+				displayname = "serial no"
+				initial value = 0
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			brand_Name
+			(
+				type = picklist	
+				displayname = "brand  Name "
+				values  = Brand_details.ID
+    			displayformat = [Brand_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Product_Name
+			(
+				type = picklist	
+				displayname = "Product  Name "
+				values  = Brand_Product_Details.ID
+    			displayformat = [Product_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			NO_of_count
+			(
+				type = number
+				displayname = "NO   of  count"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Price
+			(
+				displayname = "Price "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Total_Price
+			(
+				displayname = "Total Price"
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Existing"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form price_details
+		{
+			displayname = "price details"
+			success message = "Price Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Purchase_Price
+			(
+				displayname = "Purchase Price "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			selling_price
+			(
+				displayname = "selling price "
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Discount
+			(
+				type = decimal
+				initial value = 0
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Sales_Details
+		{
+			displayname = "Sales  Details"
+			success message = "Purchase Detail Added Successfully"
+			Customer_Details
+			(
+				type = section
+				displayname = "Customer Details "
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Customer_Phone_NO
+			(
+				type = picklist	
+				displayname = "Customer Phone  NO"
+				values  = Customer_details.ID
+    			displayformat = [Phone_Number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Customer_Name
+			(
+    			type = text
+				displayname = "Customer name"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Vendor_details
+			(
+				type = section
+				displayname = "Vendor details "
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			Vendor_ID
+			(
+				type = picklist	
+				displayname = "Vendor  ID "
+				values  = Vendor_Register.ID
+    			displayformat = [Vendor_ID]
+				sortorder = ascending
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Vendor_name
+			(
+    			type = text
+				displayname = "Vendor  name "
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			Sales_Date
+			(
+    			type = date
+				displayname = "Sales Date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 1,2,3,4,5,6
+	 			row = 2
+	 			column = 3   
+				width = medium
+			)
+			Product_details
+			(
+				type = grid
+				displayname = "Product  details"
+				values  = Existing_master.ID
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Stock_details
+		{
+			displayname = "Stock details"
+			success message = "Stock Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			opening_Stock
+			(
+				type = number
+				displayname = "opening Stock"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Current_Stock
+			(
+				type = number
+				displayname = "Current  Stock"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reorder_Stock
+			(
+				type = number
+				displayname = "Reorder Stock"
+				initial value = 10
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vehicle_details
+		{
+			displayname = "Vehicle details"
+			success message = "Vehicle Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			vehicle_Model
+			(
+    			type = text
+				displayname = "vehicle  Model"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			vehicle_variants
+			(
+    			type = text
+				displayname = "vehicle variants"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vendor_purchase_master
+		{
+			displayname = "Vendor purchase  master"
+			success message = "Vendor Purchase Master Added Successfully"
+			Purchase_details
+			(
+				type = section
+				displayname = "Purchase details "
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			purchase_ID
+			(
+    			type = text
+				displayname = "purchase  ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vendor_brand
+			(
+				type = picklist	
+				displayname = "Vendor  brand"
+				values  = Brand_details.ID
+    			displayformat = [Brand_Vendor]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Brand_Name
+			(
+				type = picklist	
+				displayname = "Brand  Name"
+				values  = Brand_details[ID == input.Vendor_brand].ID
+    			displayformat = [Brand_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Purchase_Type
+			(
+    			type = text
+				displayname = "Purchase Type "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Gst_NO
+			(
+    			type = text
+				displayname = "Gst NO"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			purchase_date
+			(
+    			type = date
+				displayname = "purchase date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			invoice_No
+			(
+    			type = text
+				displayname = "invoice  No"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Invoice_Date_and_Time
+			(
+    			type = datetime
+				displayname = "Invoice  Date and Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			payment_mode
+			(
+				type = picklist
+				displayname = "payment mode"
+				maxchar = 100
+				values = {"Cash","UPI","Bank Transfer","Credit"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Remark
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Section
+			(
+				type = section
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			plain
+			(
+    			type = plaintext
+				value = "Add your Note here ..."
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vendor_Register
+		{
+			displayname = "Vendor Register"
+			success message = "Vendor Register Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Vendor_ID
+			(
+    			type = text
+				displayname = "Vendor ID "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vendor_Brand
+			(
+				type = picklist	
+				displayname = "Vendor Brand "
+				values  = Brand_details.ID
+    			displayformat = [Brand_Vendor]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vendor_Name
+			(
+    			type = name
+				displayname = "Vendor  Name "
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Brand_Name
+			(
+				type = picklist	
+				displayname = "Brand Name "
+				values  = Brand_details.ID
+    			displayformat = [Brand_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Active","In- Active"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Section1
+			(
+				type = section
+				displayname = "Section"
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			Leads
+			(
+				type = picklist	
+				datasource = zoho_crm_leads
+    			displayformat = [first_name]
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default summary Brand_details_Report
+		{
+			displayName = "Brand details Report"
+			show all rows from Brand_details    
+			(
+				Brand_Name as "Brand Name "
+				Brand_Vendor as "Brand Vendor "
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+		}
+		default kanban All_Brand_Product_Details
+		{
+			displayName = "All Brand Product Details"
+			show all rows from Brand_Product_Details    
+			(
+				Brand_Name as "Brand Name "
+				Product_Name as "Product Name "
+				Price
+				Brand_Name.Brand_Name as "Brand Name "
+				Brand_Name.Brand_Vendor as "Brand Vendor "
+			)
+			options
+			(
+	 			display field = Brand_Name
+	 		)
+		}
+		default kanban All_Vendor_Registers
+		{
+			displayName = "All Vendor Registers"
+			show all rows from Vendor_Register    
+			(
+				Vendor_Name  as "Vendor  Name "
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Email
+				Location
+				Vendor_ID as "Vendor ID "
+				Auto_Number as "Auto Number"
+				Status
+				Vendor_Brand as "Vendor Brand "
+				Brand_Name as "Brand Name "
+				Leads
+			)
+			options
+			(
+	 			display field = Status
+	 		)
+		}
+		default summary All_Customer_Details
+		{
+			displayName = "All Customer Details"
+			show all rows from Customer_details    
+			(
+				Customer_Name  as "Customer  Name"
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Customer_ID as "Customer ID"
+				Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Email
+				Zoho_book_ID as "Zoho book ID"
+				Status as "Status "
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+		}
+		default kanban All_Vendor_Purchase_Masters
+		{
+			displayName = "All Vendor Purchase Masters"
+			show all rows from Vendor_purchase_master    
+			(
+				purchase_ID as "purchase  ID"
+				purchase_date as "purchase date "
+				invoice_No as "invoice  No"
+				Invoice_Date_and_Time as "Invoice  Date and Time"
+				Purchase_Type as "Purchase Type "
+				payment_mode as "payment mode"
+				Gst_NO as "Gst NO"
+				Remark
+				Brand_Name as "Brand  Name"
+				Vendor_brand as "Vendor  brand"
+			)
+			options
+			(
+	 			display field = Brand_Name
+	 		)
+		}
+		default summary Sales_Details1
+		{
+			displayName = "Sales  Details"
+			show all rows from Sales_Details    
+			(
+				Vendor_ID as "Vendor  ID "
+				Vendor_name as "Vendor  name "
+				Sales_Date as "Sales Date"
+				Product_details.serial_no as "Product  details"
+				Customer_Phone_NO as "Customer Phone  NO"
+				Customer_Name as "Customer name"
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+		}
+		default list All_Vehicle_Details
+		{
+			displayName = "All Vehicle Details"
+			show all rows from Vehicle_details    
+			(
+				vehicle_Model as "vehicle  Model"
+				vehicle_variants as "vehicle variants"
+			)
+		}
+		default list All_Price_Details
+		{
+			displayName = "All Price Details"
+			show all rows from price_details    
+			(
+				Purchase_Price as "Purchase Price "
+				selling_price as "selling price "
+				Discount
+			)
+		}
+		default list All_Stock_Details
+		{
+			displayName = "All Stock Details"
+			show all rows from Stock_details    
+			(
+				opening_Stock as "opening Stock"
+				Current_Stock as "Current  Stock"
+				Reorder_Stock as "Reorder Stock"
+			)
+		}
+		default list All_Masters
+		{
+			displayName = "All Masters"
+			show all rows from Existing_master    
+			(
+				brand_Name as "brand  Name "
+				Product_Name as "Product  Name "
+				Price as "Price "
+				NO_of_count as "NO   of  count"
+				Total_Price as "Total Price"
+				serial_no as "serial no"
+			)
+		}
+	}
+	pages
+	{
+		page Dashboard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<dsp id='html_snippet' elementName='HTML Snippet'\n bgColor=\"#FFFFFF\" \n>\n\t<![CDATA[htmlpage html_snippet()\ncontent\n&lt;%{\n\t/* ============================================================\n   GEAR BOX &amp; CO\n   PROFESSIONAL AUTOMOTIVE DASHBOARD\n   HTML + CSS + DELUGE\n   PRIMARY  : #E53935\n   SECONDARY: #0F1115\n   ============================================================ */\n\t/* ============================================================\n   BASIC COUNTS\n   ============================================================ */\n\tbrand_count = Brand_details[ID != null].count();\n\tproduct_count = Brand_Product_Details[ID != null].count();\n\tvendor_count = Vendor_Register[ID != null].count();\n\tcustomer_count = Customer_details[ID != null].count();\n\tpurchase_count = Vendor_purchase_master[ID != null].count();\n\tvehicle_count = Vehicle_details[ID != null].count();\n\tprice_count = price_details[ID != null].count();\n\tstock_count = Stock_details[ID != null].count();\n\tmaster_count = Existing_master[ID != null].count();\n\t/* ============================================================\n   STOCK CALCULATION\n   ============================================================ */\n\ttotal_opening_stock = 0;\n\ttotal_current_stock = 0;\n\ttotal_reorder_stock = 0;\n\tlow_stock_count = 0;\n\thealthy_stock_count = 0;\n\tinventory_value = 0;\n\tfor each  stock_record in Stock_details\n\t{\n\t\tif(stock_record.opening_Stock != null)\n\t\t{\n\t\t\ttotal_opening_stock = total_opening_stock + stock_record.opening_Stock;\n\t\t}\n\t\tif(stock_record.Current_Stock != null)\n\t\t{\n\t\t\ttotal_current_stock = total_current_stock + stock_record.Current_Stock;\n\t\t}\n\t\tif(stock_record.Reorder_Stock != null)\n\t\t{\n\t\t\ttotal_reorder_stock = total_reorder_stock + stock_record.Reorder_Stock;\n\t\t}\n\t\tif(stock_record.Current_Stock != null &amp;&amp; stock_record.Reorder_Stock != null)\n\t\t{\n\t\t\tif(stock_record.Current_Stock &lt;= stock_record.Reorder_Stock)\n\t\t\t{\n\t\t\t\tlow_stock_count = low_stock_count + 1;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\thealthy_stock_count = healthy_stock_count + 1;\n\t\t\t}\n\t\t}\n\t}\n\t/* ============================================================\n   INVENTORY VALUE\n   ============================================================ */\n\tfor each  master_record in Existing_master\n\t{\n\t\tif(master_record.Total_Price != null)\n\t\t{\n\t\t\tinventory_value = inventory_value + master_record.Total_Price;\n\t\t}\n\t\telse if(master_record.NO_of_count != null &amp;&amp; master_record.Price != null)\n\t\t{\n\t\t\tinventory_value = inventory_value + master_record.NO_of_count * master_record.Price;\n\t\t}\n\t}\n\t/* ============================================================\n   LATEST PURCHASE\n   ============================================================ */\n\tlatest_purchase_date = null;\n\tlatest_purchase_id = &quot;-&quot;;\n\tlatest_invoice = &quot;-&quot;;\n\tlatest_vendor = &quot;-&quot;;\n\tfor each  purchase_record in Vendor_purchase_master\n\t{\n\t\tif(purchase_record.purchase_date != null)\n\t\t{\n\t\t\tif(latest_purchase_date == null || purchase_record.purchase_date &gt; latest_purchase_date)\n\t\t\t{\n\t\t\t\tlatest_purchase_date = purchase_record.purchase_date;\n\t\t\t\tif(purchase_record.purchase_ID != null)\n\t\t\t\t{\n\t\t\t\t\tlatest_purchase_id = purchase_record.purchase_ID;\n\t\t\t\t}\n\t\t\t\tif(purchase_record.invoice_No != null)\n\t\t\t\t{\n\t\t\t\t\tlatest_invoice = purchase_record.invoice_No;\n\t\t\t\t}\n\t\t\t\tif(purchase_record.Vendor_brand != null)\n\t\t\t\t{\n\t\t\t\t\tlatest_vendor = purchase_record.Vendor_brand.Brand_Vendor;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\t/* ============================================================\n   STOCK HEALTH\n   ============================================================ */\n\tif(low_stock_count &gt; 0)\n\t{\n\t\tstock_health = &quot;Attention Required&quot;;\n\t\tstock_health_class = &quot;warning&quot;;\n\t}\n\telse\n\t{\n\t\tstock_health = &quot;Inventory Healthy&quot;;\n\t\tstock_health_class = &quot;success&quot;;\n\t}\n\t/* ============================================================\n   STOCK PERCENTAGE\n   ============================================================ */\n\tstock_percentage = 0;\n\tif(total_reorder_stock &gt; 0)\n\t{\n\t\tstock_percentage = total_current_stock / total_reorder_stock * 100;\n\t}\n\tif(stock_percentage &gt; 100)\n\t{\n\t\tstock_percentage = 100;\n\t}\n\t/* ============================================================\n   TODAY\n   ============================================================ */\n\ttoday_date = zoho.currentdate;\n\t%&gt;\n&lt;style&gt;\n\n/* ============================================================\n   GLOBAL\n   ============================================================ */\n\n* {\n\tbox-sizing: border-box;\n}\n\n.gb-dashboard {\n\twidth: 100%;\n\tmin-height: 100vh;\n\tbackground: #F5F6F8;\n\tpadding: 24px;\n\tfont-family: Arial, Helvetica, sans-serif;\n\tcolor: #0F1115;\n}\n\n\n/* ============================================================\n   HEADER\n   ============================================================ */\n\n.gb-header {\n\tbackground: linear-gradient(135deg,#0F1115,#181B21);\n\tborder-radius: 18px;\n\tpadding: 25px 30px;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tmargin-bottom: 22px;\n\tbox-shadow: 0 10px 30px rgba(15,17,21,0.18);\n}\n\n.gb-header-left {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 16px;\n}\n\n.gb-logo {\n\twidth: 58px;\n\theight: 58px;\n\tborder-radius: 15px;\n\tbackground: #E53935;\n\tcolor: #FFFFFF;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 22px;\n\tfont-weight: 800;\n\tbox-shadow: 0 6px 18px rgba(229,57,53,0.30);\n}\n\n.gb-title {\n\tcolor: #FFFFFF;\n\tfont-size: 25px;\n\tfont-weight: 800;\n\tmargin: 0;\n}\n\n.gb-subtitle {\n\tcolor: #A7ADB7;\n\tfont-size: 12px;\n\tmargin-top: 6px;\n}\n\n.gb-date {\n\tbackground: rgba(255,255,255,0.06);\n\tborder: 1px solid rgba(255,255,255,0.10);\n\tcolor: #D1D5DB;\n\tpadding: 10px 15px;\n\tborder-radius: 9px;\n\tfont-size: 11px;\n}\n\n\n/* ============================================================\n   SECTION\n   ============================================================ */\n\n.gb-section {\n\tmargin-top: 25px;\n\tmargin-bottom: 13px;\n}\n\n.gb-section-title {\n\tfont-size: 16px;\n\tfont-weight: 800;\n\tcolor: #0F1115;\n}\n\n.gb-section-subtitle {\n\tfont-size: 11px;\n\tcolor: #6B7280;\n\tmargin-top: 4px;\n}\n\n\n/* ============================================================\n   KPI\n   ============================================================ */\n\n.gb-kpi-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(6,1fr);\n\tgap: 13px;\n}\n\n.gb-kpi {\n\tbackground: #FFFFFF;\n\tborder: 1px solid #E5E7EB;\n\tborder-radius: 14px;\n\tpadding: 17px;\n\tposition: relative;\n\toverflow: hidden;\n\ttransition: all 0.25s ease;\n\tbox-shadow: 0 3px 12px rgba(15,17,21,0.04);\n}\n\n.gb-kpi:hover {\n\ttransform: translateY(-4px);\n\tborder-color: #E53935;\n\tbox-shadow: 0 10px 25px rgba(229,57,53,0.10);\n}\n\n.gb-kpi::after {\n\tcontent: &quot;&quot;;\n\tposition: absolute;\n\tright: -20px;\n\ttop: -20px;\n\twidth: 70px;\n\theight: 70px;\n\tborder-radius: 50%;\n\tbackground: rgba(229,57,53,0.07);\n}\n\n.gb-kpi-icon {\n\twidth: 38px;\n\theight: 38px;\n\tborder-radius: 10px;\n\tbackground: #FFF1F1;\n\tcolor: #E53935;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 17px;\n\tmargin-bottom: 13px;\n}\n\n.gb-kpi-label {\n\tfont-size: 10px;\n\tcolor: #6B7280;\n\tfont-weight: 700;\n\tletter-spacing: 0.3px;\n}\n\n.gb-kpi-value {\n\tfont-size: 25px;\n\tfont-weight: 800;\n\tcolor: #0F1115;\n\tmargin-top: 5px;\n}\n\n.gb-kpi-link {\n\tdisplay: block;\n\tmargin-top: 9px;\n\tfont-size: 10px;\n\tcolor: #E53935 !important;\n\ttext-decoration: none !important;\n\tfont-weight: 700;\n}\n\n\n/* ============================================================\n   MAIN GRID\n   ============================================================ */\n\n.gb-main-grid {\n\tdisplay: grid;\n\tgrid-template-columns: 1.35fr 0.65fr;\n\tgap: 18px;\n}\n\n\n/* ============================================================\n   CARD\n   ============================================================ */\n\n.gb-card {\n\tbackground: #FFFFFF;\n\tborder: 1px solid #E5E7EB;\n\tborder-radius: 16px;\n\tpadding: 20px;\n\tbox-shadow: 0 3px 12px rgba(15,17,21,0.04);\n}\n\n.gb-card-header {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tmargin-bottom: 18px;\n}\n\n.gb-card-title {\n\tfont-size: 15px;\n\tfont-weight: 800;\n\tcolor: #0F1115;\n}\n\n.gb-card-subtitle {\n\tfont-size: 10px;\n\tcolor: #9CA3AF;\n\tmargin-top: 4px;\n}\n\n\n/* ============================================================\n   INVENTORY\n   ============================================================ */\n\n.gb-inventory-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3,1fr);\n\tgap: 12px;\n}\n\n.gb-stock-box {\n\tborder-radius: 12px;\n\tpadding: 15px;\n\tborder: 1px solid #E5E7EB;\n\tbackground: #F8F9FA;\n}\n\n.gb-stock-label {\n\tfont-size: 10px;\n\tcolor: #6B7280;\n\tfont-weight: 600;\n}\n\n.gb-stock-value {\n\tfont-size: 22px;\n\tfont-weight: 800;\n\tmargin-top: 5px;\n\tcolor: #0F1115;\n}\n\n.gb-stock-status {\n\tmargin-top: 4px;\n\tfont-size: 10px;\n\tfont-weight: 700;\n}\n\n.gb-green {\n\tcolor: #16A34A;\n}\n\n.gb-orange {\n\tcolor: #F59E0B;\n}\n\n.gb-red {\n\tcolor: #E53935;\n}\n\n\n/* ============================================================\n   STOCK BAR\n   ============================================================ */\n\n.gb-stock-bar-wrapper {\n\tmargin-top: 18px;\n}\n\n.gb-stock-bar-label {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tfont-size: 10px;\n\tcolor: #6B7280;\n\tmargin-bottom: 7px;\n}\n\n.gb-stock-bar {\n\theight: 8px;\n\twidth: 100%;\n\tbackground: #E5E7EB;\n\tborder-radius: 20px;\n\toverflow: hidden;\n}\n\n.gb-stock-progress {\n\theight: 100%;\n\tbackground: linear-gradient(90deg,#E53935,#FF5A56);\n\tborder-radius: 20px;\n}\n\n\n/* ============================================================\n   STATUS\n   ============================================================ */\n\n.gb-status {\n\tdisplay: inline-flex;\n\talign-items: center;\n\tgap: 6px;\n\tpadding: 7px 10px;\n\tborder-radius: 20px;\n\tfont-size: 10px;\n\tfont-weight: 700;\n}\n\n.gb-status-success {\n\tbackground: #ECFDF3;\n\tcolor: #16A34A;\n}\n\n.gb-status-warning {\n\tbackground: #FFF7ED;\n\tcolor: #D97706;\n}\n\n\n/* ============================================================\n   PURCHASE\n   ============================================================ */\n\n.gb-purchase-list {\n\tdisplay: flex;\n\tflex-direction: column;\n\tgap: 10px;\n}\n\n.gb-purchase-item {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 12px;\n\tpadding: 12px;\n\tbackground: #F8F9FA;\n\tborder-radius: 10px;\n\tborder: 1px solid #E5E7EB;\n}\n\n.gb-purchase-icon {\n\twidth: 37px;\n\theight: 37px;\n\tborder-radius: 9px;\n\tbackground: #FFF1F1;\n\tcolor: #E53935;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 16px;\n\tflex-shrink: 0;\n}\n\n.gb-purchase-text {\n\tflex: 1;\n}\n\n.gb-purchase-label {\n\tfont-size: 10px;\n\tcolor: #6B7280;\n}\n\n.gb-purchase-value {\n\tfont-size: 12px;\n\tfont-weight: 700;\n\tcolor: #0F1115;\n\tmargin-top: 3px;\n}\n\n\n/* ============================================================\n   QUICK ACTIONS\n   ============================================================ */\n\n.gb-action-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(3,1fr);\n\tgap: 10px;\n}\n\n.gb-action {\n\tdisplay: block;\n\tpadding: 14px 10px;\n\tbackground: #FFFFFF;\n\tborder: 1px solid #E5E7EB;\n\tborder-radius: 11px;\n\ttext-align: center;\n\ttext-decoration: none !important;\n\ttransition: all 0.2s ease;\n}\n\n.gb-action:hover {\n\tbackground: #FFF1F1;\n\tborder-color: #E53935;\n\ttransform: translateY(-2px);\n}\n\n.gb-action-icon {\n\tfont-size: 19px;\n\tmargin-bottom: 7px;\n\tcolor: #E53935;\n}\n\n.gb-action-name {\n\tfont-size: 10px;\n\tfont-weight: 700;\n\tcolor: #374151 !important;\n}\n\n\n/* ============================================================\n   MASTER MODULES\n   ============================================================ */\n\n.gb-module-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(6,1fr);\n\tgap: 12px;\n}\n\n.gb-module {\n\tbackground: #FFFFFF;\n\tborder: 1px solid #E5E7EB;\n\tborder-radius: 14px;\n\tpadding: 16px 12px;\n\ttext-align: center;\n\ttext-decoration: none !important;\n\ttransition: all 0.25s ease;\n}\n\n.gb-module:hover {\n\ttransform: translateY(-3px);\n\tborder-color: #E53935;\n\tbox-shadow: 0 8px 20px rgba(229,57,53,0.09);\n}\n\n.gb-module-icon {\n\twidth: 40px;\n\theight: 40px;\n\tborder-radius: 11px;\n\tbackground: #FFF1F1;\n\tcolor: #E53935;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tmargin: 0 auto 9px;\n\tfont-size: 18px;\n}\n\n.gb-module-name {\n\tfont-size: 11px;\n\tfont-weight: 700;\n\tcolor: #374151 !important;\n}\n\n.gb-module-count {\n\tfont-size: 10px;\n\tcolor: #9CA3AF;\n\tmargin-top: 4px;\n}\n\n\n/* ============================================================\n   REPORT CENTER\n   ============================================================ */\n\n.gb-report-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(5,1fr);\n\tgap: 11px;\n}\n\n.gb-report {\n\tdisplay: block;\n\tbackground: #0F1115;\n\tcolor: #FFFFFF !important;\n\tpadding: 15px;\n\tborder-radius: 12px;\n\ttext-decoration: none !important;\n\tborder: 1px solid #24272D;\n\ttransition: all 0.25s ease;\n}\n\n.gb-report:hover {\n\tbackground: #E53935;\n\tborder-color: #E53935;\n\ttransform: translateY(-3px);\n\tbox-shadow: 0 8px 20px rgba(229,57,53,0.18);\n}\n\n.gb-report-icon {\n\tfont-size: 17px;\n\tmargin-bottom: 10px;\n}\n\n.gb-report-name {\n\tfont-size: 11px;\n\tfont-weight: 700;\n}\n\n.gb-report-count {\n\tfont-size: 10px;\n\tcolor: #9CA3AF;\n\tmargin-top: 5px;\n}\n\n\n/* ============================================================\n   PRIMARY BUTTON\n   ============================================================ */\n\n.gb-primary-btn {\n\tbackground: #E53935;\n\tcolor: #FFFFFF !important;\n\tborder: none;\n\tborder-radius: 8px;\n\tpadding: 10px 16px;\n\tfont-size: 10px;\n\tfont-weight: 800;\n\ttext-decoration: none !important;\n}\n\n.gb-primary-btn:hover {\n\tbackground: #C62828;\n}\n\n\n/* ============================================================\n   FOOTER\n   ============================================================ */\n\n.gb-footer {\n\tmargin-top: 22px;\n\tpadding: 14px 18px;\n\tbackground: #FFFFFF;\n\tborder: 1px solid #E5E7EB;\n\tborder-radius: 12px;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tfont-size: 10px;\n\tcolor: #9CA3AF;\n}\n\n\n/* ============================================================\n   RESPONSIVE\n   ============================================================ */\n\n@media(max-width:1100px) {\n\n\t.gb-kpi-grid {\n\t\tgrid-template-columns: repeat(3,1fr);\n\t}\n\n\t.gb-module-grid {\n\t\tgrid-template-columns: repeat(3,1fr);\n\t}\n\n\t.gb-report-grid {\n\t\tgrid-template-columns: repeat(3,1fr);\n\t}\n\n\t.gb-main-grid {\n\t\tgrid-template-columns: 1fr;\n\t}\n}\n\n\n@media(max-width:700px) {\n\n\t.gb-dashboard {\n\t\tpadding: 12px;\n\t}\n\n\t.gb-header {\n\t\tpadding: 20px;\n\t\tflex-direction: column;\n\t\talign-items: flex-start;\n\t\tgap: 15px;\n\t}\n\n\t.gb-kpi-grid {\n\t\tgrid-template-columns: repeat(2,1fr);\n\t}\n\n\t.gb-inventory-grid {\n\t\tgrid-template-columns: 1fr;\n\t}\n\n\t.gb-module-grid {\n\t\tgrid-template-columns: repeat(2,1fr);\n\t}\n\n\t.gb-report-grid {\n\t\tgrid-template-columns: repeat(2,1fr);\n\t}\n}\n\n&lt;/style&gt;\n\n\n&lt;div class=&quot;gb-dashboard&quot;&gt;\n\n\n&lt;!-- ============================================================\n     HEADER\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-header&quot;&gt;\n\n\t&lt;div class=&quot;gb-header-left&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-logo&quot;&gt;\n\t\t\tGB\n\t\t&lt;/div&gt;\n\n\t\t&lt;div&gt;\n\n\t\t\t&lt;div class=&quot;gb-title&quot;&gt;\n\t\t\t\tGEAR BOX &amp;amp; CO\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-subtitle&quot;&gt;\n\t\t\t\tAutomotive Parts \u2022 Inventory \u2022 Procurement Management\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;gb-date&quot;&gt;\n\t\tBusiness Date : &lt;%=today_date%&gt;\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     KPI\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-section&quot;&gt;\n\n\t&lt;div class=&quot;gb-section-title&quot;&gt;\n\t\tOperations Overview\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-section-subtitle&quot;&gt;\n\t\tReal-time application statistics\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;gb-kpi-grid&quot;&gt;\n\n\n&lt;!-- BRAND --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\uD83C\uDFF7\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tTOTAL BRANDS\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=brand_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:Brand_details_Report?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Brands \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- PRODUCTS --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\u2699\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tTOTAL PRODUCTS\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=product_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:All_Brand_Product_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Products \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- VENDORS --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\uD83C\uDFE2\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tTOTAL VENDORS\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=vendor_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:All_Vendor_Registers?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Vendors \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- CUSTOMERS --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\uD83D\uDC65\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tTOTAL CUSTOMERS\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=customer_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:All_Customer_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Customers \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- PURCHASE --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\uD83E\uDDFE\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tTOTAL PURCHASES\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=purchase_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:All_Vendor_Purchase_Masters?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Purchases \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- VEHICLES --&gt;\n\n&lt;div class=&quot;gb-kpi&quot;&gt;\n\n\t&lt;div class=&quot;gb-kpi-icon&quot;&gt;\n\t\t\uD83D\uDE97\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-label&quot;&gt;\n\t\tVEHICLE MODELS\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-kpi-value&quot;&gt;\n\t\t&lt;%=vehicle_count%&gt;\n\t&lt;/div&gt;\n\n\t&lt;a class=&quot;gb-kpi-link&quot;\n\t   href=&quot;#Report:All_Vehicle_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t\tView Vehicles \u2192\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     INVENTORY + PURCHASE\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-section&quot;&gt;\n\n\t&lt;div class=&quot;gb-section-title&quot;&gt;\n\t\tInventory &amp;amp; Procurement\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-section-subtitle&quot;&gt;\n\t\tMonitor inventory health and purchasing operations\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;gb-main-grid&quot;&gt;\n\n\n&lt;!-- INVENTORY --&gt;\n\n&lt;div class=&quot;gb-card&quot;&gt;\n\n\t&lt;div class=&quot;gb-card-header&quot;&gt;\n\n\t\t&lt;div&gt;\n\n\t\t\t&lt;div class=&quot;gb-card-title&quot;&gt;\n\t\t\t\tInventory Health\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-card-subtitle&quot;&gt;\n\t\t\t\tCurrent inventory position\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-status &lt;%=if(stock_health_class == &quot;success&quot;,&quot;gb-status-success&quot;,&quot;gb-status-warning&quot;)%&gt;&quot;&gt;\n\n\t\t\t\u25CF &lt;%=stock_health%&gt;\n\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;gb-inventory-grid&quot;&gt;\n\n\n\t\t&lt;div class=&quot;gb-stock-box&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-label&quot;&gt;\n\t\t\t\tOPENING STOCK\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-value&quot;&gt;\n\t\t\t\t&lt;%=total_opening_stock%&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-status&quot;&gt;\n\t\t\t\tInitial quantity\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-stock-box&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-label&quot;&gt;\n\t\t\t\tCURRENT STOCK\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-value gb-green&quot;&gt;\n\t\t\t\t&lt;%=total_current_stock%&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-status gb-green&quot;&gt;\n\t\t\t\tAvailable\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-stock-box&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-label&quot;&gt;\n\t\t\t\tREORDER LEVEL\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-value gb-orange&quot;&gt;\n\t\t\t\t&lt;%=total_reorder_stock%&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-status gb-orange&quot;&gt;\n\t\t\t\tThreshold\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;gb-stock-bar-wrapper&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-stock-bar-label&quot;&gt;\n\n\t\t\t&lt;span&gt;\n\t\t\t\tStock Availability\n\t\t\t&lt;/span&gt;\n\n\t\t\t&lt;span&gt;\n\t\t\t\t&lt;%=low_stock_count%&gt; low stock\n\t\t\t&lt;/span&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-stock-bar&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-stock-progress&quot;\n\t\t\t\t style=&quot;width:&lt;%=stock_percentage%&gt;%;&quot;&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div style=&quot;margin-top:18px;\n\t\t\t\tdisplay:flex;\n\t\t\t\tjustify-content:space-between;\n\t\t\t\talign-items:center;&quot;&gt;\n\n\t\t&lt;div&gt;\n\n\t\t\t&lt;div style=&quot;font-size:10px;color:#6B7280;&quot;&gt;\n\t\t\t\tINVENTORY VALUE\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div style=&quot;font-size:20px;\n\t\t\t\t\t\tfont-weight:800;\n\t\t\t\t\t\tcolor:#0F1115;\n\t\t\t\t\t\tmargin-top:4px;&quot;&gt;\n\n\t\t\t\t\u20B9 &lt;%=inventory_value%&gt;\n\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;a class=&quot;gb-primary-btn&quot;\n\t\t   href=&quot;#Report:All_Stock_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t\t\tReview Stock \u2192\n\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n\n&lt;!-- PURCHASE --&gt;\n\n&lt;div class=&quot;gb-card&quot;&gt;\n\n\t&lt;div class=&quot;gb-card-header&quot;&gt;\n\n\t\t&lt;div&gt;\n\n\t\t\t&lt;div class=&quot;gb-card-title&quot;&gt;\n\t\t\t\tPurchase Operations\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-card-subtitle&quot;&gt;\n\t\t\t\tProcurement summary\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;gb-purchase-list&quot;&gt;\n\n\n\t\t&lt;div class=&quot;gb-purchase-item&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-icon&quot;&gt;\n\t\t\t\t\uD83E\uDDFE\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-text&quot;&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-label&quot;&gt;\n\t\t\t\t\tTOTAL PURCHASES\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-value&quot;&gt;\n\t\t\t\t\t&lt;%=purchase_count%&gt; transactions\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-purchase-item&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-icon&quot;&gt;\n\t\t\t\t\uD83C\uDFE2\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-text&quot;&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-label&quot;&gt;\n\t\t\t\t\tVENDORS\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-value&quot;&gt;\n\t\t\t\t\t&lt;%=vendor_count%&gt; registered\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-purchase-item&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-icon&quot;&gt;\n\t\t\t\t\uD83D\uDCC5\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-text&quot;&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-label&quot;&gt;\n\t\t\t\t\tLATEST PURCHASE\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-value&quot;&gt;\n\t\t\t\t\t&lt;%=latest_purchase_id%&gt;\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t\t&lt;div class=&quot;gb-purchase-item&quot;&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-icon&quot;&gt;\n\t\t\t\t\uD83D\uDCC4\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;gb-purchase-text&quot;&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-label&quot;&gt;\n\t\t\t\t\tLATEST INVOICE\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t\t&lt;div class=&quot;gb-purchase-value&quot;&gt;\n\t\t\t\t\t&lt;%=latest_invoice%&gt;\n\t\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;/div&gt;\n\n\t\t&lt;/div&gt;\n\n\n\t&lt;/div&gt;\n\n\n\t&lt;div style=&quot;margin-top:15px;&quot;&gt;\n\n\t\t&lt;a class=&quot;gb-primary-btn&quot;\n\t\t   style=&quot;display:block;text-align:center;&quot;\n\t\t   href=&quot;#Report:All_Vendor_Purchase_Masters?zc_LoadIn=dialog&quot;&gt;\n\n\t\t\tOpen Purchase Register \u2192\n\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     QUICK ACTIONS\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-section&quot;&gt;\n\n\t&lt;div class=&quot;gb-section-title&quot;&gt;\n\t\tQuick Actions\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-section-subtitle&quot;&gt;\n\t\tCreate and manage business records\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;gb-card&quot;&gt;\n\n\t&lt;div class=&quot;gb-action-grid&quot;&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Brand_details&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\uD83C\uDFF7\uFE0F\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tAdd Brand\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Brand_Product_Details&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\u2699\uFE0F\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tAdd Product\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Vendor_Register&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\uD83C\uDFE2\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tAdd Vendor\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Customer_details&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\uD83D\uDC64\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tAdd Customer\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Vendor_purchase_master&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\uD83E\uDDFE\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tNew Purchase\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;gb-action&quot;\n\t   href=&quot;#Form:Stock_details&quot;&gt;\n\n\t\t&lt;div class=&quot;gb-action-icon&quot;&gt;\n\t\t\t\uD83D\uDCE6\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;gb-action-name&quot;&gt;\n\t\t\tUpdate Stock\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     MASTER MANAGEMENT\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-section&quot;&gt;\n\n\t&lt;div class=&quot;gb-section-title&quot;&gt;\n\t\tMaster Management\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-section-subtitle&quot;&gt;\n\t\tManage core application data\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;gb-module-grid&quot;&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:Brand_details_Report?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\uD83C\uDFF7\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tBrands\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=brand_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:All_Brand_Product_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\u2699\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tProducts\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=product_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:All_Vendor_Registers?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\uD83C\uDFE2\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tVendors\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=vendor_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:All_Customer_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\uD83D\uDC65\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tCustomers\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=customer_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:All_Vehicle_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\uD83D\uDE97\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tVehicles\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=vehicle_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-module&quot;\n   href=&quot;#Report:All_Price_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-module-icon&quot;&gt;\n\t\t\uD83D\uDCB0\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-name&quot;&gt;\n\t\tPricing\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-module-count&quot;&gt;\n\t\t&lt;%=price_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     REPORT CENTER\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-section&quot;&gt;\n\n\t&lt;div class=&quot;gb-section-title&quot;&gt;\n\t\tReport Center\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-section-subtitle&quot;&gt;\n\t\tAccess application reports\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;gb-report-grid&quot;&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:Brand_details_Report?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83C\uDFF7\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tBrand Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=brand_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Brand_Product_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\u2699\uFE0F\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tProduct Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=product_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Vendor_Registers?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83C\uDFE2\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tVendor Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=vendor_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Customer_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83D\uDC65\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tCustomer Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=customer_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Vendor_Purchase_Masters?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83E\uDDFE\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tPurchase Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=purchase_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Stock_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83D\uDCE6\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tStock Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=stock_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Price_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83D\uDCB0\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tPrice Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=price_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Vehicle_Details?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83D\uDE97\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tVehicle Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=vehicle_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;a class=&quot;gb-report&quot;\n   href=&quot;#Report:All_Masters?zc_LoadIn=dialog&quot;&gt;\n\n\t&lt;div class=&quot;gb-report-icon&quot;&gt;\n\t\t\uD83D\uDCCB\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-name&quot;&gt;\n\t\tMaster Report\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;gb-report-count&quot;&gt;\n\t\t&lt;%=master_count%&gt; records\n\t&lt;/div&gt;\n\n&lt;/a&gt;\n\n\n&lt;/div&gt;\n\n\n\n&lt;!-- ============================================================\n     FOOTER\n     ============================================================ --&gt;\n\n&lt;div class=&quot;gb-footer&quot;&gt;\n\n\t&lt;span&gt;\n\t\tGEAR BOX &amp;amp; CO \u2022 Operations Dashboard\n\t&lt;/span&gt;\n\n\t&lt;span&gt;\n\t\tInventory \u2022 Procurement \u2022 Masters\n\t&lt;/span&gt;\n\n&lt;/div&gt;\n\n\n&lt;/div&gt;\n&lt;%\n\n}%&gt;]]>\n</dsp>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Vendor_ID as "Vendor ID"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Vendor_ID = "VEN-8888" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			disable as "disable"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add
+					status = inactive
+
+				field rules
+				{
+					actions 
+					{
+						disable Vendor_ID;
+					}
+				}
+
+			}
+			Validate as "Validate"
+			{
+				type =  form
+				form = Brand_details
+
+				record event = on add
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(Brand_Name != null)
+										{
+											duplicateBrand = Brand_details[Brand_Name == input.Brand_Name && ID != input.ID];
+											if(duplicateBrand.count() > 0)
+											{
+												alert "Brand Name already exists. Please enter a different brand name.";
+												cancel submit;
+											}
+										}
+						)
+					}
+				}
+
+			}
+			validate_values as "validate values"
+			{
+				type =  form
+				form = Brand_details
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(!input.Brand_Name.matches("^[A-Za-z ]+$"))
+										{
+											alert "Brand Name should contain only letters and spaces.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			validate_it as "validate it"
+			{
+				type =  form
+				form = Brand_Product_Details
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Product_Name == null || input.Product_Name.trim() == "")
+										{
+											alert "Product Name is required.";
+											cancel submit;
+										}
+										if(!input.Product_Name.matches("^[A-Za-z0-9 ()&.-]+$"))
+										{
+											alert "Product Name contains invalid characters.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			validations as "validations"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+					status = inactive
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Vendor_Name.first_name == null || Vendor_Name.first_name.trim() == "")
+										{
+											alert "First Name is required.";
+											cancel submit;
+										}
+										if(!Vendor_Name.first_name.matches("^[A-Za-z ]+$"))
+										{
+											alert "First Name should contain only letters.";
+											cancel submit;
+										}
+										if(input.Vendor_Name.last_name != null && input.Vendor_Name.last_name != "")
+										{
+											if(!Vendor_Name.last_name.matches("^[A-Za-z ]+$"))
+											{
+												alert "Last Name should contain only letters.";
+												cancel submit;
+											}
+										}
+						)
+					}
+				}
+
+			}
+			validate_email as "validate email"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+					status = inactive
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Email == null || input.Email.trim() == "")
+										{
+											alert "Email is required.";
+											cancel submit;
+										}
+										// if(!input.Email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"))
+										// {
+										// 	alert "Please enter a valid email address.";
+										// 	cancel submit;
+										// }
+										duplicateEmail = Vendor_Register[Email == input.Email && ID != input.ID];
+										if(duplicateEmail.count() > 0)
+										{
+											alert "This email address is already registered.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			validate_ph as "validate  ph"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+					status = inactive
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Phone_Number == null || input.Phone_Number.toString().trim() == "")
+										{
+											alert "Phone number is required.";
+											cancel submit;
+										}
+										phoneNo = input.Phone_Number.toString().replaceAll("[^0-9]","");
+										if(phoneNo.length() != 10)
+										{
+											alert "Phone number must contain exactly 10 digits.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			validate_location as "validate location"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+					status = inactive
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Address != null && input.Address.trim() != "")
+										{
+											if(!input.Address.matches("^[A-Za-z ]+$"))
+											{
+												alert "City / District should contain only letters and spaces.";
+												cancel submit;
+											}
+										}
+						)
+					}
+				}
+
+			}
+			validate_post_code as "validate post code"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+					status = inactive
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Address == null || input.Address.toString().trim() == "")
+										{
+											alert "Postal Code is required.";
+											cancel submit;
+										}
+										if(!input.Address.toString().matches("^[1-9][0-9]{5}$"))
+										{
+											alert "Enter a valid 6-digit Postal Code.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			hide_id as "hide id"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add
+
+				field rules
+				{
+					actions 
+					{
+						hide Vendor_ID;
+					}
+				}
+
+			}
+			hide_id1 as "hide id"
+			{
+				type =  form
+				form = Customer_details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Customer_ID;
+					}
+				}
+
+			}
+			Validate_Cus_name as "Validate Cus name"
+			{
+				type =  form
+				form = Customer_details
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Customer_Name == null || input.Customer_Name.trim() == "")
+										{
+											alert "Customer Name is required.";
+											cancel submit;
+										}
+										if(!input.Customer_Name.matches("^[A-Za-z ]+$"))
+										{
+											alert "Customer Name should contain only letters and spaces.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			genrate_ID as "genrate ID"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.purchase_ID = "PUR_999888" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			fetch_rec as "fetch rec"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add or edit
+
+				on user input of Vendor_brand
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fec = Brand_details[ID == input.Vendor_brand];
+										input.Brand_Name = fec.ID;
+						)
+					}
+				}
+
+			}
+			css as "css"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.plain = "<style>" + ".select2-container .select2-choice abbr {" + " right: 300px;" + "}" + "</style>";
+						)
+					}
+				}
+
+			}
+			fetch as "fetch"
+			{
+				type =  form
+				form = Vendor_Register
+
+				record event = on add or edit
+
+				on user input of Vendor_Brand
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fec = Brand_details[ID == input.Vendor_Brand];
+										input.Brand_Name = fec.ID;
+						)
+					}
+				}
+
+			}
+			fetch_vendor_name as "fetch vendor name"
+			{
+				type =  form
+				form = Sales_Details
+
+				record event = on add or edit
+
+				on user input of Vendor_ID
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Vendor_name = input.Vendor_ID.Vendor_Name;
+						)
+					}
+				}
+
+			}
+			serial_No as "serial No"
+			{
+				type =  form
+				form = Sales_Details
+
+				record event = on add or edit
+
+				on add row of Product_details
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											count = 0;
+										for each  i in input.Product_details
+										{
+											count = count + 1;
+											row.serial_no=count;
+										}
+						)
+					}
+				}
+
+			}
+			Decrease_serial_no as "Decrease serial no"
+			{
+				type =  form
+				form = Sales_Details
+
+				record event = on add or edit
+
+				on delete row of Product_details
+				{
+				}
+
+			}
+			portal_user as "portal user"
+			{
+				type =  form
+				form = Customer_details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											thisapp.portal.assignUserInProfile(input.Email,"User permissions for access");
+										//customer integration(post)
+										// if(input.Phone_Number != null)
+										// {
+										// 	customerMap = Map();
+										// 	customerMap.put("contact_name",input.Customer_ID);
+										// 	customerMap.put("company_name",input.Customer_Name);
+										// 	customerMap.put("contact_type","customer");
+										// 	customerMap.put("first_name",input.Customer_Name.first_name);
+										// 	customerMap.put("last_name",input.Customer_Name.last_name);
+										// 	customerMap.put("salutation",input.Customer_Name.prefix);
+										// 	customer_list = List();
+										// 	empty_map = Map();
+										// 	empty_map.put("email",input.Email);
+										// 	empty_map.put("phone",input.Phone_Number);
+										// 	customer_list.add(empty_map);
+										// 	customerMap.put("contact_persons",customer_list);
+										// 	responses = invokeurl
+										// 	[
+										// 		url :"https://www.zohoapis.in/books/v3/contacts?organization_id=60077296437"
+										// 		type :POST
+										// 		parameters:customerMap.toString()
+										// 		connection:"zoho_books_connection"
+										// 	];
+										// 	info responses;
+										// 	var = responses.get("contact").get("contact_id");
+										// 	input.Zoho_book_ID = var;
+										// 	//
+										// }
+										// else
+										// {
+										// 	Fetch_ustomer_ID = Customer_details[Email == input.Email];
+										// 	input.Zoho_book_ID = Fetch_ustomer_ID.Zoho_book_ID;
+										// }
+						)
+					}
+				}
+
+			}
+			Genrate_ID1 as "Genrate ID"
+			{
+				type =  form
+				form = Customer_details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Customer_ID = "CUST-123" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			hide_id2 as "hide id"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add
+
+				field rules
+				{
+					actions 
+					{
+						hide purchase_ID;
+					}
+					actions 
+					{
+						disable Brand_Name;
+					}
+				}
+
+			}
+			Gst_validations as "Gst validations"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add or edit
+
+				on user input of Gst_NO
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Gst_NO != null && input.Gst_NO != "")
+										{
+											gst = input.Gst_NO.toUpperCase();
+											if(!gst.matches("[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z][1-9A-Z]Z[0-9A-Z]"))
+											{
+												alert "Enter a valid GST Number";
+												input.Gst_NO = "";
+											}
+										}
+						)
+					}
+				}
+
+			}
+			validate_invoice as "validate invoice"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add or edit
+
+				on user input of invoice_No
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.invoice_No != null && input.invoice_No != "")
+										{
+											existing = Vendor_purchase_master[invoice_No == input.invoice_No];
+											if(existing.count() > 0)
+											{
+												alert "Invoice Number already exists";
+												input.invoice_No = "";
+											}
+										}
+						)
+					}
+				}
+
+			}
+			validate_pur_date as "validate pur date"
+			{
+				type =  form
+				form = Vendor_purchase_master
+
+				record event = on add or edit
+
+				on user input of purchase_date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.purchase_date > zoho.currentdate)
+										{
+											alert "Purchase Date cannot be a future date";
+											input.purchase_date = null;
+										}
+						)
+					}
+				}
+
+			}
+			item_integration as "item integration"
+			{
+				type =  form
+				form = Brand_Product_Details
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											itemMap = Map();
+										itemMap.put("brand_name",input.Brand_Name.Brand_Name);
+										itemMap.put("name",input.Product_Name);
+										itemMap.put("rate",input.Price);
+										response = invokeurl
+										[
+											url :"https://www.zohoapis.in/books/v3/items?organization_id=60077296437"
+											type :POST
+											parameters:itemMap.toString()
+											connection:"zoho_books_connection"
+										];
+										// info itemMap;
+										// info "-------------------------";
+										// info response;
+						)
+					}
+				}
+
+			}
+			test as "test"
+			{
+				type =  form
+				form = Customer_details
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Phone_Number != null)
+										{
+											customerMap = Map();
+											customerMap.put("contact_name",input.Customer_ID);
+											customerMap.put("company_name",input.Customer_Name);
+											customerMap.put("contact_type","customer");
+											customerMap.put("first_name",input.Customer_Name.first_name);
+											customerMap.put("last_name",input.Customer_Name.last_name);
+											customerMap.put("salutation",input.Customer_Name.prefix);
+											customer_list = List();
+											empty_map = Map();
+											empty_map.put("email",input.Email);
+											empty_map.put("phone",input.Phone_Number);
+											customer_list.add(empty_map);
+											customerMap.put("contact_persons",customer_list);
+											responses = invokeurl
+											[
+												url :"https://www.zohoapis.in/books/v3/contacts?organization_id=60077296437"
+												type :POST
+												parameters:customerMap.toString()
+												connection:"zoho_books_connection"
+											];
+											info responses;
+											var = responses.get("contact").get("contact_id");
+											input.Zoho_book_ID = var;
+											//
+										}
+										else
+										{
+											Fetch_ustomer_ID = Customer_details[Email == input.Email];
+											input.Zoho_book_ID = Fetch_ustomer_ID.Zoho_book_ID;
+										}
+						)
+					}
+				}
+
+			}
+			Fetch_CUS_Details as "Fetch CUS Details"
+			{
+				type =  form
+				form = Sales_Details
+
+				record event = on add or edit
+
+				on user input of Customer_Phone_NO
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Customer_Name = input.Customer_Phone_NO.Customer_Name;
+						)
+					}
+				}
+
+			}
+			fetch_product_details as "fetch product details"
+			{
+				type =  form
+				form = Sales_Details
+
+				record event = on add or edit
+
+				on user input of Product_details.brand_Name
+				{
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			"User permissions for access"
+			{
+				name = "User permissions for access"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "User permissions for access Profile\n"
+				ModulePermissions
+				{
+					Sales_Details
+					{
+						allFieldsVisible= true 
+					}
+					Vendor_purchase_master
+					{
+						allFieldsVisible= true 
+					}
+					Stock_details
+					{
+						allFieldsVisible= true 
+					}
+					Existing_master
+					{
+						allFieldsVisible= true 
+					}
+					Customer_details
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Customer_Details={"View"}
+						}
+					}
+					price_details
+					{
+						allFieldsVisible= true 
+					}
+					Brand_details
+					{
+						allFieldsVisible= true 
+					}
+					Vendor_Register
+					{
+						allFieldsVisible= true 
+					}
+					Vehicle_details
+					{
+						allFieldsVisible= true 
+					}
+					Brand_Product_Details
+					{
+						allFieldsVisible= true 
+					}
+				}
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	connections
+	{
+		zoho_books_connection
+		(
+			displayname = "Zoho Books Connection"
+			user access = true
+			connector = zohobooks
+			permissions = {"all_operations","create_account","create_bill","create_credit_note","create_custom_module_record","create_customer","create_customer_payment","create_delivery_challan","create_expense","create_invoice","create_item","create_journal","create_location","create_purchase_order","create_quote","create_recurring_bill","create_recurring_expense","create_retainer_invoice","create_sales_order","create_vendor","create_vendor_credit","create_vendor_payment","delete_bill","delete_credit_note","delete_customer","delete_customer_payment","delete_delivery_challan","delete_expense","delete_invoice","delete_item","delete_journal","delete_purchase_order","delete_quote","delete_recurring_bill","delete_recurring_expense","delete_retainer_invoice","delete_sales_order","delete_vendor_credit","delete_vendor_payment","get_account","get_all_accounts","get_all_bills","get_all_credit_notes","get_all_currencies","get_all_custom_module_records","get_all_custom_modules","get_all_customer_payments","get_all_customers","get_all_delivery_challans","get_all_expenses","get_all_invoices","get_all_items","get_all_journals","get_all_locations","get_all_organizations","get_all_projects","get_all_purchase_accounts","get_all_purchase_orders","get_all_quotes","get_all_recurring_bills","get_all_recurring_expenses","get_all_retainer_invoices","get_all_sales_accounts","get_all_sales_orders","get_all_states","get_all_stock_accounts","get_all_tax_authorities","get_all_taxes","get_all_tds_taxes","get_all_vendor_credits","get_all_vendor_payments","get_all_vendors","get_bill","get_credit_note","get_custom_module_record","get_customer","get_customer_payment","get_delivery_challan","get_expense","get_invoice","get_item","get_journal","get_purchase_order","get_quote","get_recurring_bill","get_recurring_expense","get_retainer_invoice","get_sales_order","get_vendor","get_vendor_credit","get_vendor_payment","search_accounts","search_bills","search_credit_notes","search_customer_payments","search_customers","search_expenses","search_invoices","search_items","search_journals","search_purchase_orders","search_quotes","search_recurring_bills","search_recurring_expenses","search_sales_orders","search_vendor_credits","search_vendor_payments","search_vendors","sync_customers","sync_invoices","sync_items","sync_purchase_orders","sync_quotes","sync_sales_orders","sync_vendors","update_account","update_bill","update_credit_note","update_custom_module_record","update_customer","update_customer_payment","update_delivery_challan","update_expense","update_invoice","update_item","update_journal","update_location","update_purchase_order","update_quote","update_recurring_bill","update_recurring_expense","update_retainer_invoice","update_sales_order","update_vendor","update_vendor_credit","update_vendor_payment"}
+		)
+	}
+	datasources
+	{
+		zoho_crm_leads
+		{
+			displayname = "Zoho CRM Leads"
+			module = Leads
+			system connection = zohocrm
+			annual_revenue
+			(
+				type = decimal
+				displayname = "Annual Revenue"
+				source field name = "Annual_Revenue"
+				search operators = {"equals"}
+			)
+			city
+			(
+				type = text
+				displayname = "City"
+				source field name = "City"
+				search operators = {"startsWith"}
+			)
+			must have company
+			(
+				type = text
+				displayname = "Company"
+				source field name = "Company"
+				search operators = {"startsWith"}
+			)
+			country
+			(
+				type = text
+				displayname = "Country"
+				source field name = "Country"
+				search operators = {"startsWith"}
+			)
+			description
+			(
+				type = textarea
+				displayname = "Description"
+				source field name = "Description"
+			)
+			email
+			(
+				type = email
+				displayname = "Email"
+				source field name = "Email"
+				search operators = {"startsWith"}
+			)
+			email_opt_out
+			(
+				type = checkbox
+				displayname = "Email Opt Out"
+				source field name = "Email_Opt_Out"
+			)
+			fax
+			(
+				type = text
+				displayname = "Fax"
+				source field name = "Fax"
+				search operators = {"startsWith"}
+			)
+			first_name
+			(
+				type = text
+				displayname = "First Name"
+				source field name = "First_Name"
+				search operators = {"startsWith"}
+			)
+			industry
+			(
+				type = picklist
+				displayname = "Industry"
+				source field name = "Industry"
+				search operators = {"startsWith"}
+				values = {"Communications","Consulting","Education","Financial Services","Government/Military","Health Care","IT Services","Manufacturing","Pharma","Real Estate","Technology"}
+			)
+			must have last_name
+			(
+				type = text
+				displayname = "Last Name"
+				source field name = "Last_Name"
+				search operators = {"startsWith"}
+			)
+			lead_source
+			(
+				type = picklist
+				displayname = "Lead Source"
+				source field name = "Lead_Source"
+				search operators = {"startsWith"}
+				values = {"Advertisement","Chat","Cold Call","Employee Referral","External Referral","Partner","Public Relations","Search Engine","Trade Show","Web Form"}
+			)
+			lead_status
+			(
+				type = picklist
+				displayname = "Lead Status"
+				source field name = "Lead_Status"
+				search operators = {"startsWith"}
+				values = {"Attempted to Contact","Contact in Future","Contacted","Junk Lead","Lost Lead","Not Contacted","Pre-Qualified"}
+			)
+			leadid
+			(
+				type = text
+				displayname = "LEADID"
+				source field name = "LEADID"
+				primary = true
+				report only = true
+			)
+			mobile
+			(
+				type = text
+				displayname = "Mobile"
+				source field name = "Mobile"
+				search operators = {"startsWith"}
+			)
+			no_of_employees
+			(
+				type = number
+				displayname = "No of Employees"
+				source field name = "No_of_Employees"
+				search operators = {"equals"}
+			)
+			phone
+			(
+				type = text
+				displayname = "Phone"
+				source field name = "Phone"
+				search operators = {"startsWith"}
+			)
+			rating
+			(
+				type = picklist
+				displayname = "Rating"
+				source field name = "Rating"
+				search operators = {"startsWith"}
+				values = {"Acquired","Active","Market Failed","Project Cancelled","Shut Down"}
+			)
+			secondary_email
+			(
+				type = email
+				displayname = "Secondary Email"
+				source field name = "Secondary_Email"
+				search operators = {"startsWith"}
+			)
+			skype_id
+			(
+				type = text
+				displayname = "Skype ID"
+				source field name = "Skype_ID"
+				search operators = {"startsWith"}
+			)
+			state
+			(
+				type = text
+				displayname = "State"
+				source field name = "State"
+				search operators = {"startsWith"}
+			)
+			street
+			(
+				type = text
+				displayname = "Street"
+				source field name = "Street"
+				search operators = {"startsWith"}
+			)
+			title
+			(
+				type = text
+				displayname = "Title"
+				source field name = "Designation"
+				search operators = {"startsWith"}
+			)
+			twitter
+			(
+				type = text
+				displayname = "Twitter"
+				source field name = "Twitter"
+				search operators = {"startsWith"}
+			)
+			website
+			(
+				type = url
+				displayname = "Website"
+				source field name = "Website"
+			)
+			zip_code
+			(
+				type = text
+				displayname = "Zip Code"
+				source field name = "Zip_Code"
+				search operators = {"startsWith"}
+			)
+		}
+	}
+	web
+	{
+		forms
+		{
+			form Brand_details
+			{
+				label placement = labelinplace
+			}
+			form Brand_Product_Details
+			{
+				label placement = labelinplace
+			}
+			form Customer_details
+			{
+				label placement = labelinplace
+			}
+			form Existing_master
+			{
+				label placement = labelinplace
+			}
+			form price_details
+			{
+				label placement = labelinplace
+			}
+			form Sales_Details
+			{
+				label placement = labelinplace
+			}
+			form Stock_details
+			{
+				label placement = labelinplace
+			}
+			form Vehicle_details
+			{
+				label placement = labelinplace
+			}
+			form Vendor_purchase_master
+			{
+				label placement = labelinplace
+			}
+			form Vendor_Register
+			{
+				label placement = labelinplace
+			}
+		}
+		reports
+		{
+			report Brand_details_Report
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Brand_Product_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Product_Name as "Product Name "
+								Price
+								Brand_Name.Brand_Name as "Brand Name "
+								Brand_Name.Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock2
+						(
+		     				title = "Brand Name "
+		     				related field = Brand_Name
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Vendor_Registers
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Vendor_Name as "Vendor  Name "
+								Phone_Number as "Phone"
+								Email
+								Vendor_ID as "Vendor ID "
+								Vendor_Brand as "Vendor Brand "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Vendor_ID as "Vendor ID "
+								Vendor_Brand as "Vendor Brand "
+								Vendor_Name as "Vendor  Name "
+								Brand_Name as "Brand Name "
+								Email
+								Phone_Number as "Phone"
+								Location
+							)
+						)
+						datablock2
+						(
+		     				title = "Vendor Brand "
+		     				related field = Vendor_Brand
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Customer_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Customer_Name as "Customer  Name"
+								Phone_Number as "Phone"
+								Customer_ID as "Customer ID"
+								Address
+								Email
+								Zoho_book_ID as "Zoho book ID"
+								Status as "Status "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Customer_Name as "Customer  Name"
+								Phone_Number as "Phone"
+								Customer_ID as "Customer ID"
+								Address
+								Email
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Vendor_Purchase_Masters
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								purchase_ID as "purchase  ID"
+								purchase_date as "purchase date "
+								Vendor_brand as "Vendor  brand"
+								Brand_Name as "Brand  Name"
+								Purchase_Type as "Purchase Type "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								purchase_ID as "purchase  ID"
+								purchase_date as "purchase date "
+								invoice_No as "invoice  No"
+								Invoice_Date_and_Time as "Invoice  Date and Time"
+								Purchase_Type as "Purchase Type "
+								payment_mode as "payment mode"
+								Gst_NO as "Gst NO"
+								Remark
+								Brand_Name as "Brand  Name"
+								Vendor_brand as "Vendor  brand"
+							)
+						)
+						datablock2
+						(
+		     				title = "Vendor  brand"
+		     				related field = Vendor_brand
+							fields
+							(
+								Brand_Name as "Brand Name "
+								Brand_Vendor as "Brand Vendor "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Sales_Details1
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Vendor_ID as "Vendor  ID "
+								Vendor_name as "Vendor  name "
+								Sales_Date as "Sales Date"
+								Product_details.serial_no as "Product  details"
+								Customer_Phone_NO as "Customer Phone  NO"
+								Customer_Name as "Customer name"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Vendor_ID as "Vendor  ID "
+								Vendor_name as "Vendor  name "
+								Sales_Date as "Sales Date"
+								Customer_Phone_NO as "Customer Phone  NO"
+								Customer_Name as "Customer name"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Vehicle_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								vehicle_Model as "vehicle  Model"
+								vehicle_variants as "vehicle variants"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								vehicle_Model as "vehicle  Model"
+								vehicle_variants as "vehicle variants"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Price_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Purchase_Price as "Purchase Price "
+								selling_price as "selling price "
+								Discount
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Purchase_Price as "Purchase Price "
+								selling_price as "selling price "
+								Discount
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Stock_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								opening_Stock as "opening Stock"
+								Current_Stock as "Current  Stock"
+								Reorder_Stock as "Reorder Stock"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								opening_Stock as "opening Stock"
+								Current_Stock as "Current  Stock"
+								Reorder_Stock as "Reorder Stock"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Masters
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								brand_Name as "brand  Name "
+								Product_Name as "Product  Name "
+								Price as "Price "
+								NO_of_count as "NO   of  count"
+								Total_Price as "Total Price"
+								serial_no as "serial no"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								brand_Name as "brand  Name "
+								Product_Name as "Product  Name "
+								Price as "Price "
+								NO_of_count as "NO   of  count"
+								Total_Price as "Total Price"
+								serial_no as "serial no"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			unused
+			{
+				form  Vehicle_details
+				{
+					icon = "transportation-car"
+				}
+				form  price_details
+				{
+					icon = "shopping-tag"
+				}
+				form  Stock_details
+				{
+					icon = "shopping-stock"
+				}
+				report All_Stock_Details
+				{
+					icon = "tech-desktop"
+				}
+				report All_Price_Details
+				{
+					icon = "tech-desktop"
+				}
+				report All_Vehicle_Details
+				{
+					icon = "tech-desktop"
+				}
+			}
+			space Dashborad
+			{
+				displayname = "Dashborad"
+				icon = "objects-spaceship"
+
+				section Dashboard
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+			}
+			space Masters
+			{
+				displayname = "Masters"
+				icon = "objects-spaceship"
+
+				section Brand_details
+				{
+					displayname = "Brand details"
+					icon = "users-2-contacts-44"
+					form  Brand_details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Brand_Product_Details
+				{
+					displayname = "Brand Product Details"
+					icon = "shopping-cart-simple"
+					form  Brand_Product_Details
+					{
+						icon = "shopping-cart-simple"
+					}
+				}
+				section Vendor_Registers
+				{
+					displayname = "Vendor Registers"
+					icon = "shopping-shop-location"
+					form  Vendor_Register
+					{
+						icon = "shopping-cash-register"
+					}
+				}
+				section Customer_Details
+				{
+					displayname = "Customer Details"
+					icon = "users-2-contacts-44"
+					form  Customer_details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Vendor_Purchase_Masters
+				{
+					displayname = "Vendor Purchase Masters"
+					icon = "shopping-pos"
+					form  Vendor_purchase_master
+					{
+						icon = "shopping-cart-simple-in"
+					}
+				}
+				section Exising_details
+				{
+					displayname = "Exising   details"
+					icon = "sport-tennis"
+					form  Existing_master
+					{
+						icon = "design-web-design"
+					}
+				}
+			}
+			space Reports
+			{
+				displayname = "Reports"
+				icon = "objects-spaceship"
+
+					report Brand_details_Report
+					{
+						icon = "tech-desktop"
+					}
+					report All_Brand_Product_Details
+					{
+						icon = "tech-desktop"
+					}
+					report All_Vendor_Registers
+					{
+						icon = "tech-desktop"
+					}
+					report All_Customer_Details
+					{
+						icon = "tech-desktop"
+					}
+					report All_Vendor_Purchase_Masters
+					{
+						icon = "tech-desktop"
+					}
+					report All_Masters
+					{
+						icon = "tech-desktop"
+					}
+			}
+			space Sales
+			{
+				displayname = "Sales"
+				icon = "objects-spaceship"
+
+				section Sales_Details
+				{
+					displayname = "Sales  Details"
+					icon = "users-2-contacts-44"
+					form  Sales_Details
+					{
+						icon = "users-2-contacts-44"
+					}
+					report Sales_Details1
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			layout
+			{
+				theme = "theme_8"
+			}
+			font = "lato"
+			color options
+			{
+				name = "custom_color_4"
+				brand color = "#2563eb"
+				navigation background color = "#0f1115"
+				type = "custom"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Brand_details
+			{
+				label placement = auto
+			}
+			form Brand_Product_Details
+			{
+				label placement = auto
+			}
+			form Customer_details
+			{
+				label placement = auto
+			}
+			form Existing_master
+			{
+				label placement = auto
+			}
+			form price_details
+			{
+				label placement = auto
+			}
+			form Sales_Details
+			{
+				label placement = auto
+			}
+			form Stock_details
+			{
+				label placement = auto
+			}
+			form Vehicle_details
+			{
+				label placement = auto
+			}
+			form Vendor_purchase_master
+			{
+				label placement = auto
+			}
+			form Vendor_Register
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Brand_details
+			{
+				label placement = auto
+			}
+			form Brand_Product_Details
+			{
+				label placement = auto
+			}
+			form Customer_details
+			{
+				label placement = auto
+			}
+			form Existing_master
+			{
+				label placement = auto
+			}
+			form price_details
+			{
+				label placement = auto
+			}
+			form Sales_Details
+			{
+				label placement = auto
+			}
+			form Stock_details
+			{
+				label placement = auto
+			}
+			form Vehicle_details
+			{
+				label placement = auto
+			}
+			form Vendor_purchase_master
+			{
+				label placement = auto
+			}
+			form Vendor_Register
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}

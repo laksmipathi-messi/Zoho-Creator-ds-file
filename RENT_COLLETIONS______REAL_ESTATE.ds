@@ -1,0 +1,2127 @@
+/*
+ * Author       : mkmtraining242
+ * Generated on : 13-Oct-2026 12:26:39
+ * Version      : 1.0
+ */
+ application "RENT COLLETIONS  @   REAL ESTATE"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Building_Details
+		{
+			displayname = "Building  Details"
+			success message = "Building Detail Added Successfully"
+			building_details
+			(
+				type = section
+				displayname = "building details"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Building_Name
+			(
+    			type = text
+				displayname = "Building Name "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Owner_Name
+			(
+    			type = text
+				displayname = "Owner Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = true
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+				private = true
+	 			row = 1
+	 			column = 2   
+				width = large
+				personal data = true
+			)
+			Image
+			(
+    			type = image
+				source  = file
+    			file count = 10
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Building_Status
+			(
+				type = picklist
+				displayname = "Building Status "
+				maxchar = 100
+				values = {"Active","In Active"}
+				initial value = "Active"
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			must have Total_units
+			(
+				type = number
+				displayname = "Total  units "
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Exitsing_Form
+		{
+			displayname = "Exitsing Form"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Tenant_name
+			(
+				type = picklist	
+				displayname = "Tenant  name "
+				values  = Tenant_Details.ID
+    			displayformat = [Tenant_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Building_Name
+			(
+				type = picklist	
+				displayname = "Building  Name"
+				values  = Building_Details.ID
+    			displayformat = [Building_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Unit_Type
+			(
+    			type = text
+				displayname = " Unit  Type "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Monthy_Rent
+			(
+				displayname = "Monthy  Rent "
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Rent_Due_details
+		{
+			displayname = "Rent Due details"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Tenant_name
+			(
+				type = picklist	
+				displayname = "Tenant name "
+				values  = Tenant_Details.ID
+    			displayformat = [Tenant_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Date_field1
+			(
+    			type = date
+				displayname = "Date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Unit_lable
+			(
+				type = picklist	
+				displayname = "Unit lable"
+				values  = Unit_Details.ID
+    			displayformat = [Unit_lable]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Due_date
+			(
+    			type = date
+				displayname = "Due date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Rental_Amount
+			(
+				displayname = "Rental Amount "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Paid_Amount
+			(
+				displayname = "Paid Amount "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Balance
+			(
+				displayname = "Balance "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Balance_for_unit
+			(
+    			type = checkbox
+				displayname = "Balance for unit"
+	 			row = 1
+	 			column = 2   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  Balance = input.Rental_Amount - input.Paid_Amount
+    						visibility = false
+    			)
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Rent_Payment_Details
+		{
+			displayname = "Rent Payment Details"
+			success message = "Payment Detail Rented Successfully"
+			Rent_Payment_form
+			(
+				type = grid
+				displayname = "Rent Payment form"
+				values  = Exitsing_Form.ID
+				defaultrow = 1
+				maxrow = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Section
+			(
+				type = section
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			Payment_ID
+			(
+    			type = text
+				displayname = "Payment ID "
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Amount_paid
+			(
+				displayname = "Amount paid "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Payment_date
+			(
+    			type = date
+				displayname = "Payment date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Payment_Mode
+			(
+				type = picklist
+				displayname = "Payment Mode "
+				maxchar = 100
+				values = {"UPI","Bank Transfer","Cash"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Transaction_ID
+			(
+    			type = text
+				displayname = "Transaction ID "
+				maxchar = 16
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			Auto_Number1
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			Payment_Status
+			(
+				type = picklist
+				displayname = "Payment  Status "
+				maxchar = 100
+				values = {"Paid","Un paid"}
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			Balance_Amount
+			(
+				displayname = "Balance Amount "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Rent"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Tenant_Details
+		{
+			displayname = "Tenant Details"
+			success message = "Tenant Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Tenant_Name
+			(
+    			type = text
+				displayname = "Tenant Name "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			File_upload
+			(
+    			type = upload file
+				displayname = "File upload"
+				browse = local_drive
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			OCR
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 2   
+				width = medium
+						AI_Properties
+						(
+									fieldtype = OCR
+									basefield = File_upload
+						)
+			)
+			Move_in_date
+			(
+    			type = date
+				displayname = "Move in date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			must have Status
+			(
+				type = picklist
+				displayname = "Status "
+				maxchar = 100
+				values = {"Active","Move out"}
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Unit_label
+			(
+				type = picklist	
+				displayname = "Unit  label"
+				values  = Unit_Details.ID
+    			displayformat = [Unit_lable]
+				sortorder = ascending
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Monthly_Rent
+			(
+				displayname = "Monthly  Rent "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Unit_Details
+		{
+			displayname = "Unit Details"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Building_Name
+			(
+				type = picklist	
+				displayname = "Building Name "
+				values  = Building_Details.ID
+    			displayformat = [Building_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Unit_No
+			(
+    			type = text
+				displayname = "Unit No"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Unit_Type
+			(
+				type = picklist
+				displayname = " Unit  Type "
+				maxchar = 100
+				values = {"1BHK","2BHK","3BHK"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Floor
+			(
+				type = number
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Monthy_Rent
+			(
+				displayname = "Monthy  Rent "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Unit_lable
+			(
+    			type = text
+				displayname = "Unit lable"
+	 			row = 1
+	 			column = 3   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Building_Name.Building_Name + "-" + input.Unit_No
+    						visibility = false
+    						format = plaintext
+    			)
+			)
+			must have Deposit
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Status
+			(
+				type = picklist
+				displayname = "Status "
+				maxchar = 100
+				values = {"Vacant","Occupied"}
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default custom Building_Details_Record
+		{
+			displayName = "Building Details Record"
+			show all rows from Building_Details    
+			(
+				Building_Name as "Building Name "
+				Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Total_units as "Total  units "
+				Image
+				Owner_Name as "Owner Name"
+				Building_Status as "Building Status "
+			)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Building_Status == "Active")
+				fields = [Building_Status]
+				format = "font-weight:bold;background-color:#11b1cc;"
+				}
+				"New Formatting"
+				{
+				condition = (Building_Status == "In Active")
+				fields = [Building_Status]
+				format = "font-weight:bold;color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		default kanban Unit_Details_Records
+		{
+			displayName = "Unit Details Records"
+			show all rows from Unit_Details    
+			(
+				Building_Name as "Building Name "
+				(
+					view = Building_Details_Record
+				)
+				Unit_No as "Unit No"
+				Floor
+				Monthy_Rent as "Monthy  Rent "
+				Status as "Status "
+				Unit_lable as "Unit lable"
+				Unit_Type as " Unit  Type "
+				Deposit
+			)
+			options
+			(
+	 			display field = Building_Name
+	 		)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Status == "Vacant")
+				fields = [Status]
+				format = "font-weight:bold;background-color:#11b1cc;"
+				}
+				"New Formatting"
+				{
+				condition = (Status == "Occupied")
+				fields = [Status]
+				format = "font-weight:bold;color:#ffffff;background-color:#2f78d0;"
+				}
+			)
+		}
+		default kanban Tenant_Details_Record
+		{
+			displayName = "Tenant Details Record"
+			show all rows from Tenant_Details    
+			(
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Email
+				Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Tenant_Name as "Tenant Name "
+				Move_in_date as "Move in date "
+				Status as "Status "
+				Unit_label as "Unit  label"
+				Monthly_Rent as "Monthly  Rent "
+				File_upload as "File upload"
+				OCR
+			)
+			options
+			(
+	 			display field = Status
+	 		)
+		}
+		default summary Rent_Due_details_Records
+		{
+			displayName = "Rent Due details  records"
+			show all rows from Rent_Due_details    
+			(
+				Tenant_name as "Tenant name "
+				Date_field1 as "Date "
+				Rental_Amount as "Rental Amount "
+				Unit_lable as "Unit lable"
+				Paid_Amount as "Paid Amount "
+				Balance as "Balance "
+				Balance_for_unit as "Balance for unit"
+				Due_date as "Due date "
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				fields = [Date_field1]
+				format = "font-weight:bold;color:#ffffff;background-color:#3598db;"
+				}
+			)
+		}
+		default summary All_Payment_Records
+		{
+			displayName = "Payment Details Records"
+			show all rows from Rent_Payment_Details    
+			(
+				Payment_ID as "Payment ID "
+				Auto_Number as "Auto Number"
+				Amount_paid as "Amount paid "
+				Payment_date as "Payment date "
+				Payment_Mode as "Payment Mode "
+				Transaction_ID as "Transaction ID "
+				Auto_Number1 as "Auto Number"
+				Payment_Status as "Payment  Status "
+				Balance_Amount as "Balance Amount "
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+		}
+		default list Exitsing_Form_Report
+		{
+			displayName = "Exitsing Form Report"
+			show all rows from Exitsing_Form    
+			(
+				Tenant_name as "Tenant  name "
+				Unit_Type as " Unit  Type "
+				Monthy_Rent as "Monthy  Rent "
+				Building_Name as "Building  Name"
+			)
+		}
+	}
+	pages
+	{
+		page Dashboard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<dsp id='html_snippet' elementName='HTML Snippet'\n bgColor=\"#FFFFFF\" \n>\n\t<![CDATA[htmlpage html_snippet()\ncontent\n&lt;%{\n\t/* =========================================================\n   RENT COLLECTION - REAL ESTATE\n   DYNAMIC DASHBOARD\n   Primary    : #CEDBFA\n   Background : #2F78D0\n   ========================================================= */\n\t/* =========================\n   LIVE RECORD COUNTS\n   ========================= */\n\tbuilding_count = Building_Details.count();\n\tunit_count = Unit_Details.count();\n\ttenant_count = Tenant_Details.count();\n\trent_due_count = Rent_Due_details.count();\n\tpayment_count = Rent_Payment_Details.count();\n\texisting_count = Exitsing_Form.count();\n\t/* =========================\n   UNIT STATUS\n   ========================= */\n\toccupied_count = Unit_Details[Status == &quot;Occupied&quot;].count();\n\tvacant_count = Unit_Details[Status == &quot;Vacant&quot;].count();\n\t/* =========================\n   TENANT STATUS\n   ========================= */\n\tactive_tenant_count = Tenant_Details[Status == &quot;Active&quot;].count();\n\t/* =========================\n   RENT CALCULATION\n   ========================= */\n\ttotal_rent = 0;\n\ttotal_paid = 0;\n\ttotal_balance = 0;\n\tfor each  rent in Rent_Due_details\n\t{\n\t\ttotal_rent = total_rent + ifnull(rent.Rental_Amount,0);\n\t\ttotal_paid = total_paid + ifnull(rent.Paid_Amount,0);\n\t\ttotal_balance = total_balance + ifnull(rent.Balance,0);\n\t}\n\t/* =========================\n   OCCUPANCY %\n   ========================= */\n\toccupancy_percentage = 0;\n\tif(unit_count &gt; 0)\n\t{\n\t\toccupancy_percentage = (occupied_count * 100) / unit_count;\n\t}\n\t/* =========================\n   HTML\n   ========================= */\n\t%&gt;\n&lt;style&gt;\n\n*{\n    box-sizing:border-box;\n}\n\n.rb-dashboard{\n    width:100%;\n    min-height:100%;\n    padding:28px;\n    background:#2F78D0;\n    font-family:Arial, Helvetica, sans-serif;\n    color:#ffffff;\n}\n\n\n/* =========================\n   MAIN TITLE\n   ========================= */\n\n.rb-title{\n    font-size:28px;\n    font-weight:800;\n    margin-bottom:6px;\n    letter-spacing:.3px;\n}\n\n.rb-subtitle{\n    font-size:14px;\n    opacity:.85;\n    margin-bottom:25px;\n}\n\n\n/* =========================\n   SUMMARY CARDS\n   ========================= */\n\n.rb-summary{\n    display:grid;\n    grid-template-columns:repeat(3,1fr);\n    gap:18px;\n    margin-bottom:22px;\n}\n\n.rb-card{\n    background:#CEDBFA;\n    color:#173A70;\n    border-radius:18px;\n    padding:22px;\n    min-height:145px;\n    box-shadow:0 8px 20px rgba(0,0,0,.14);\n    transition:.25s ease;\n}\n\n.rb-card:hover{\n    transform:translateY(-4px);\n    box-shadow:0 12px 25px rgba(0,0,0,.20);\n}\n\n.rb-card-top{\n    display:flex;\n    justify-content:space-between;\n    align-items:center;\n}\n\n.rb-icon{\n    width:45px;\n    height:45px;\n    border-radius:13px;\n    background:#2F78D0;\n    color:#CEDBFA;\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    font-size:21px;\n    font-weight:bold;\n}\n\n.rb-label{\n    font-size:14px;\n    font-weight:600;\n    margin-top:18px;\n}\n\n.rb-value{\n    font-size:32px;\n    font-weight:800;\n    margin-top:5px;\n}\n\n\n/* =========================\n   ACTION BUTTONS\n   ========================= */\n\n.rb-actions{\n    display:flex;\n    gap:8px;\n    margin-top:16px;\n}\n\n.rb-btn{\n    text-decoration:none;\n    border-radius:9px;\n    padding:9px 13px;\n    font-size:12px;\n    font-weight:700;\n    transition:.2s ease;\n}\n\n.rb-add{\n    background:#2F78D0;\n    color:#ffffff;\n}\n\n.rb-view{\n    background:#ffffff;\n    color:#2F78D0;\n}\n\n.rb-btn:hover{\n    opacity:.82;\n}\n\n\n/* =========================\n   SECOND SECTION\n   ========================= */\n\n.rb-section{\n    background:#CEDBFA;\n    color:#173A70;\n    border-radius:18px;\n    padding:22px;\n    margin-top:20px;\n    box-shadow:0 8px 20px rgba(0,0,0,.13);\n}\n\n.rb-section-title{\n    font-size:19px;\n    font-weight:800;\n    margin-bottom:18px;\n}\n\n\n/* =========================\n   STATUS GRID\n   ========================= */\n\n.rb-status-grid{\n    display:grid;\n    grid-template-columns:repeat(3,1fr);\n    gap:15px;\n}\n\n.rb-status{\n    background:#ffffff;\n    border-radius:13px;\n    padding:18px;\n}\n\n.rb-status-label{\n    font-size:13px;\n    color:#667899;\n    font-weight:600;\n}\n\n.rb-status-value{\n    font-size:25px;\n    font-weight:800;\n    margin-top:6px;\n}\n\n.rb-progress{\n    width:100%;\n    height:9px;\n    background:#e5e9f4;\n    border-radius:20px;\n    overflow:hidden;\n    margin-top:10px;\n}\n\n.rb-progress-fill{\n    height:100%;\n    background:#2F78D0;\n    border-radius:20px;\n}\n\n\n/* =========================\n   RENT SUMMARY\n   ========================= */\n\n.rb-money-grid{\n    display:grid;\n    grid-template-columns:repeat(3,1fr);\n    gap:15px;\n}\n\n.rb-money{\n    background:#ffffff;\n    border-radius:13px;\n    padding:20px;\n}\n\n.rb-money-title{\n    font-size:13px;\n    color:#667899;\n    font-weight:600;\n}\n\n.rb-money-value{\n    font-size:24px;\n    font-weight:800;\n    margin-top:7px;\n}\n\n\n/* =========================\n   QUICK ACCESS\n   ========================= */\n\n.rb-access-grid{\n    display:grid;\n    grid-template-columns:repeat(3,1fr);\n    gap:15px;\n}\n\n.rb-access{\n    background:#ffffff;\n    color:#173A70;\n    border-radius:13px;\n    padding:18px;\n    text-decoration:none;\n    display:block;\n    transition:.2s ease;\n}\n\n.rb-access:hover{\n    transform:translateY(-3px);\n    background:#f7f9ff;\n}\n\n.rb-access-title{\n    font-size:15px;\n    font-weight:800;\n}\n\n.rb-access-text{\n    font-size:12px;\n    color:#71809a;\n    margin-top:5px;\n}\n\n\n/* =========================\n   RESPONSIVE\n   ========================= */\n\n@media(max-width:900px){\n\n    .rb-summary{\n        grid-template-columns:repeat(2,1fr);\n    }\n\n    .rb-status-grid{\n        grid-template-columns:repeat(2,1fr);\n    }\n\n    .rb-money-grid{\n        grid-template-columns:repeat(2,1fr);\n    }\n\n    .rb-access-grid{\n        grid-template-columns:repeat(2,1fr);\n    }\n}\n\n\n@media(max-width:600px){\n\n    .rb-dashboard{\n        padding:15px;\n    }\n\n    .rb-summary{\n        grid-template-columns:1fr;\n    }\n\n    .rb-status-grid{\n        grid-template-columns:1fr;\n    }\n\n    .rb-money-grid{\n        grid-template-columns:1fr;\n    }\n\n    .rb-access-grid{\n        grid-template-columns:1fr;\n    }\n\n}\n\n&lt;/style&gt;\n\n\n&lt;div class=&quot;rb-dashboard&quot;&gt;\n\n    &lt;div class=&quot;rb-title&quot;&gt;\n        RENT COLLECTION DASHBOARD\n    &lt;/div&gt;\n\n    &lt;div class=&quot;rb-subtitle&quot;&gt;\n        Real Estate Management &amp; Rent Collection\n    &lt;/div&gt;\n\n\n    &lt;!-- =========================\n         MAIN MODULE CARDS\n         ========================= --&gt;\n\n    &lt;div class=&quot;rb-summary&quot;&gt;\n\n\n        &lt;!-- BUILDING --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Buildings&lt;/div&gt;\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=building_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    B\n                &lt;/div&gt;\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Building_Details&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:Building_Details_Record&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n\n        &lt;!-- UNIT --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Units&lt;/div&gt;\n\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=unit_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    U\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Unit_Details&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:Unit_Details_Records&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n\n        &lt;!-- TENANT --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Tenants&lt;/div&gt;\n\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=tenant_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    T\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Tenant_Details&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:Tenant_Details_Record&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n\n        &lt;!-- RENT DUE --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Rent Due&lt;/div&gt;\n\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=rent_due_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    R\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Rent_Due_details&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:Rent_Due_details_Records&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n\n        &lt;!-- PAYMENTS --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Payments&lt;/div&gt;\n\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=payment_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    P\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Rent_Payment_Details&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:All_Payment_Records&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n\n        &lt;!-- EXISTING --&gt;\n\n        &lt;div class=&quot;rb-card&quot;&gt;\n\n            &lt;div class=&quot;rb-card-top&quot;&gt;\n\n                &lt;div&gt;\n                    &lt;div class=&quot;rb-label&quot;&gt;Existing Records&lt;/div&gt;\n\n                    &lt;div class=&quot;rb-value&quot;&gt;\n                        &lt;%=existing_count%&gt;\n                    &lt;/div&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-icon&quot;&gt;\n                    E\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n            &lt;div class=&quot;rb-actions&quot;&gt;\n\n                &lt;a class=&quot;rb-btn rb-add&quot;\n                   href=&quot;#Form:Exitsing_Form&quot;&gt;\n                    + Add\n                &lt;/a&gt;\n\n                &lt;a class=&quot;rb-btn rb-view&quot;\n                   href=&quot;#Report:Exitsing_Form_Report&quot;&gt;\n                    View Records\n                &lt;/a&gt;\n\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n    &lt;/div&gt;\n\n\n\n    &lt;!-- =========================\n         UNIT STATUS\n         ========================= --&gt;\n\n    &lt;div class=&quot;rb-section&quot;&gt;\n\n        &lt;div class=&quot;rb-section-title&quot;&gt;\n            Unit &amp; Tenant Status\n        &lt;/div&gt;\n\n        &lt;div class=&quot;rb-status-grid&quot;&gt;\n\n\n            &lt;div class=&quot;rb-status&quot;&gt;\n\n                &lt;div class=&quot;rb-status-label&quot;&gt;\n                    Occupied Units\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-status-value&quot;&gt;\n                    &lt;%=occupied_count%&gt;\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-progress&quot;&gt;\n\n                    &lt;div class=&quot;rb-progress-fill&quot;\n                         style=&quot;width:&lt;%=occupancy_percentage%&gt;%;&quot;&gt;\n                    &lt;/div&gt;\n\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n            &lt;div class=&quot;rb-status&quot;&gt;\n\n                &lt;div class=&quot;rb-status-label&quot;&gt;\n                    Vacant Units\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-status-value&quot;&gt;\n                    &lt;%=vacant_count%&gt;\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n            &lt;div class=&quot;rb-status&quot;&gt;\n\n                &lt;div class=&quot;rb-status-label&quot;&gt;\n                    Active Tenants\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-status-value&quot;&gt;\n                    &lt;%=active_tenant_count%&gt;\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n        &lt;/div&gt;\n\n    &lt;/div&gt;\n\n\n\n    &lt;!-- =========================\n         RENT SUMMARY\n         ========================= --&gt;\n\n    &lt;div class=&quot;rb-section&quot;&gt;\n\n        &lt;div class=&quot;rb-section-title&quot;&gt;\n            Rent Collection Summary\n        &lt;/div&gt;\n\n        &lt;div class=&quot;rb-money-grid&quot;&gt;\n\n\n            &lt;div class=&quot;rb-money&quot;&gt;\n\n                &lt;div class=&quot;rb-money-title&quot;&gt;\n                    Total Rent\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-money-value&quot;&gt;\n                    \u20B9 &lt;%=total_rent%&gt;\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n            &lt;div class=&quot;rb-money&quot;&gt;\n\n                &lt;div class=&quot;rb-money-title&quot;&gt;\n                    Total Paid\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-money-value&quot;&gt;\n                    \u20B9 &lt;%=total_paid%&gt;\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n            &lt;div class=&quot;rb-money&quot;&gt;\n\n                &lt;div class=&quot;rb-money-title&quot;&gt;\n                    Balance Amount\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-money-value&quot;&gt;\n                    \u20B9 &lt;%=total_balance%&gt;\n                &lt;/div&gt;\n\n            &lt;/div&gt;\n\n\n        &lt;/div&gt;\n\n    &lt;/div&gt;\n\n\n\n    &lt;!-- =========================\n         QUICK ACCESS\n         ========================= --&gt;\n\n    &lt;div class=&quot;rb-section&quot;&gt;\n\n        &lt;div class=&quot;rb-section-title&quot;&gt;\n            Quick Access\n        &lt;/div&gt;\n\n        &lt;div class=&quot;rb-access-grid&quot;&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Form:Building_Details&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Building Details\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    Add and manage buildings\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Form:Unit_Details&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Unit Management\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    Manage vacant and occupied units\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Form:Tenant_Details&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Tenant Management\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    Manage tenant information\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Form:Rent_Due_details&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Rent Due\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    Manage pending rent\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Form:Rent_Payment_Details&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Rent Payments\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    Record rent payments\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n            &lt;a class=&quot;rb-access&quot;\n               href=&quot;#Report:All_Payment_Records&quot;&gt;\n\n                &lt;div class=&quot;rb-access-title&quot;&gt;\n                    Payment Records\n                &lt;/div&gt;\n\n                &lt;div class=&quot;rb-access-text&quot;&gt;\n                    View all payment records\n                &lt;/div&gt;\n\n            &lt;/a&gt;\n\n\n        &lt;/div&gt;\n\n    &lt;/div&gt;\n\n&lt;/div&gt;\n&lt;%\n\n}%&gt;]]>\n</dsp>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Genrate_unit_ID as "Genrate unit ID"
+			{
+				type =  form
+				form = Unit_Details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Unit_No = "UNI-100" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			disable_fied as "disable fied"
+			{
+				type =  form
+				form = Unit_Details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Unit_No;
+					}
+				}
+
+			}
+			fetch_data as "fetch data"
+			{
+				type =  form
+				form = Tenant_Details
+
+				record event = on add or edit
+					status = inactive
+
+				on user input of Unit_label
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Monthly_Rent = input.Unit_label.Monthy_Rent;
+						)
+					}
+				}
+
+			}
+			validation as "validation"
+			{
+				type =  form
+				form = Building_Details
+
+				record event = on add or edit
+
+				on user input of Building_Name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Building Name
+										// if(input.Building_Name == null || input.Building_Name.trim() == " ")
+										// {
+										// 	alert "Please enter Building Name.";
+										// }
+										if(input.Building_Name.matches("*.[0-9].*"))
+										{
+											alert "Please Enter the letter";
+										}
+						)
+					}
+				}
+
+			}
+			featch as "featch"
+			{
+				type =  form
+				form = Rent_Due_details
+
+				record event = on add or edit
+
+				on user input of Tenant_name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											TD = Tenant_Details[ID = input.Tenant_name];
+										input.Date_field1 = TD.Move_in_date;
+										input.Unit_lable = TD.Unit_label;
+										UD = Unit_Details[ID == input.Unit_lable];
+										input.Rental_Amount = UD.Monthy_Rent;
+						)
+					}
+				}
+
+			}
+			calu_Amount as "calu Amount"
+			{
+				type =  form
+				form = Rent_Due_details
+
+				record event = on add or edit
+
+				on user input of Paid_Amount
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Balance = input.Rental_Amount - input.Paid_Amount;
+						)
+					}
+				}
+
+			}
+			disable_field as "disable field"
+			{
+				type =  form
+				form = Rent_Due_details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Balance,Date_field1,Unit_lable,Rental_Amount;
+					}
+				}
+
+			}
+			fetch as "fetch"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add or edit
+
+				on user input of Rent_Payment_form.Tenant_name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											TD = Tenant_Details[ID == row.Tenant_name];
+										row.Monthy_Rent=TD.Monthly_Rent;
+										UD = Unit_Details[ID == TD.Unit_label];
+										row.Building_Name=UD.Building_Name;
+										row.Unit_Type=UD.Unit_Type;
+										RD = Rent_Due_details[Tenant_name == TD.ID];
+										input.Payment_date = RD.Date_field1;
+						)
+					}
+				}
+
+			}
+			disable as "disable"
+			{
+				type =  form
+				form = Exitsing_Form
+
+				record event = on add
+
+				field rules
+				{
+					actions 
+					{
+						disable Unit_Type,Monthy_Rent,Building_Name;
+					}
+				}
+
+			}
+			disable1 as "disable"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											disable Rent_Payment_form.Building_Name;
+										disable Rent_Payment_form.Monthy_Rent;
+										disable Rent_Payment_form.Unit_Type;
+						)
+					}
+				}
+
+			}
+			genrate_Pay_ID as "genrate Pay ID"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Payment_ID = "PAY-00022939309384" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			Genrate_Transction_ID as "Genrate Transction ID"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Transaction_ID = "TRA-" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			Hide_field as "Hide field"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Payment_ID,Transaction_ID;
+					}
+				}
+
+			}
+			ValidationTo_Sub as "ValidationTo Sub"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add
+
+				on user input of Rent_Payment_form.Tenant_name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											TD = Tenant_Details[ID == row.Tenant_name];
+										Fetch_Paid = Rent_Due_details[Tenant_name == TD.ID];
+										input.Amount_paid = Fetch_Paid.Paid_Amount;
+										input.Balance_Amount = Fetch_Paid.Balance;
+						)
+					}
+				}
+
+			}
+			validate as "validate"
+			{
+				type =  form
+				form = Rent_Payment_Details
+
+				record event = on add or edit
+
+				on user input of Payment_Mode
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Payment_Mode != null)
+										{
+											input.Payment_Status = "Paid";
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "RCR"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Building_Details
+			{
+				label placement = labelinplace
+			}
+			form Exitsing_Form
+			{
+				label placement = labelinplace
+			}
+			form Rent_Due_details
+			{
+				label placement = labelinplace
+			}
+			form Rent_Payment_Details
+			{
+				label placement = labelinplace
+			}
+			form Tenant_Details
+			{
+				label placement = labelinplace
+			}
+			form Unit_Details
+			{
+				label placement = labelinplace
+			}
+		}
+		reports
+		{
+			report Building_Details_Record
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 6
+						datablock1
+						(
+							layout type = 19
+							fields
+							(
+								Image
+								Building_Name as "Building Name "
+								Address
+								Owner_Name as "Owner Name"
+								Total_units as "Total  units "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Building_Name as "Building Name "
+								Address
+								Total_units as "Total  units "
+								Image
+								Owner_Name as "Owner Name"
+								Building_Status as "Building Status "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Unit_Details_Records
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Building_Name as "Building Name "
+								Unit_No as "Unit No"
+								Unit_Type as " Unit  Type "
+								Floor
+								Monthy_Rent as "Monthy  Rent "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							Edit   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Building_Name as "Building Name "
+								Unit_No as "Unit No"
+								Floor
+								Monthy_Rent as "Monthy  Rent "
+								Unit_lable as "Unit lable"
+								Unit_Type as " Unit  Type "
+								Deposit
+								Status as "Status "
+							)
+						)
+						datablock2
+						(
+		     				title = "Building Name "
+		     				related field = Building_Name
+							fields
+							(
+								Building_Name as "Building Name "
+								Owner_Name as "Owner Name"
+								Image
+								Address
+								Total_units as "Total  units "
+								Building_Status as "Building Status "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Tenant_Details_Record
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Phone_Number as "Phone"
+								Email
+								Tenant_Name as "Tenant Name "
+								Move_in_date as "Move in date "
+								Status as "Status "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Phone_Number as "Phone"
+								Email
+								Address
+								Tenant_Name as "Tenant Name "
+								Move_in_date as "Move in date "
+								Status as "Status "
+								Unit_label as "Unit  label"
+								Monthly_Rent as "Monthly  Rent "
+								File_upload as "File upload"
+								OCR
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Rent_Due_details_Records
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Tenant_name as "Tenant name "
+								Date_field1 as "Date "
+								Unit_lable as "Unit lable"
+								Rental_Amount as "Rental Amount "
+								Paid_Amount as "Paid Amount "
+								Balance as "Balance "
+								Balance_for_unit as "Balance for unit"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Tenant_name as "Tenant name "
+								Date_field1 as "Date "
+								Rental_Amount as "Rental Amount "
+								Unit_lable as "Unit lable"
+								Paid_Amount as "Paid Amount "
+								Balance as "Balance "
+								Balance_for_unit as "Balance for unit"
+								Due_date as "Due date "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Payment_Records
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Payment_ID as "Payment ID "
+								Amount_paid as "Amount paid "
+								Payment_date as "Payment date "
+								Payment_Mode as "Payment Mode "
+								Transaction_ID as "Transaction ID "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Payment_ID as "Payment ID "
+								Auto_Number as "Auto Number"
+								Amount_paid as "Amount paid "
+								Payment_date as "Payment date "
+								Payment_Mode as "Payment Mode "
+								Transaction_ID as "Transaction ID "
+								Auto_Number1 as "Auto Number"
+								Payment_Status as "Payment  Status "
+								Balance_Amount as "Balance Amount "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Exitsing_Form_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Tenant_name as "Tenant  name "
+								Unit_Type as " Unit  Type "
+								Monthy_Rent as "Monthy  Rent "
+								Building_Name as "Building  Name"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Tenant_name as "Tenant  name "
+								Unit_Type as " Unit  Type "
+								Monthy_Rent as "Monthy  Rent "
+								Building_Name as "Building  Name"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space DashBoard
+			{
+				displayname = "DashBoard"
+				icon = "objects-spaceship"
+
+					page Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+			}
+			space Master
+			{
+				displayname = "Master"
+				icon = "objects-spaceship"
+
+				section Building_Details
+				{
+					displayname = "Building Details"
+					icon = "business-building"
+					form  Building_Details
+					{
+						icon = "business-building"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Unit_Details
+				{
+					displayname = "Unit Details"
+					icon = "users-2-contacts-44"
+					form  Unit_Details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Tenant_Details
+				{
+					displayname = "Tenant Details"
+					icon = "users-2-contacts-44"
+					form  Tenant_Details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Rent_Due_details
+				{
+					displayname = "Rent Due details"
+					icon = "shopping-cash-register"
+					form  Rent_Due_details
+					{
+						icon = "shopping-cash-register"
+					}
+				}
+				section Payment_Details
+				{
+					displayname = "Payment Details"
+					icon = "shopping-receipt"
+					form  Rent_Payment_Details
+					{
+						icon = "shopping-receipt"
+					}
+				}
+				section Exitsing_Form
+				{
+					displayname = "Exitsing Form"
+					icon = "design-2-form"
+					form  Exitsing_Form
+					{
+						icon = "design-2-form"
+					}
+				}
+			}
+			space Report
+			{
+				displayname = "Report"
+				icon = "objects-spaceship"
+
+					report Building_Details_Record
+					{
+						icon = "tech-desktop"
+					}
+					report Unit_Details_Records
+					{
+						icon = "tech-desktop"
+					}
+					report Tenant_Details_Record
+					{
+						icon = "tech-desktop"
+					}
+					report Rent_Due_details_Records
+					{
+						icon = "tech-desktop"
+					}
+					report All_Payment_Records
+					{
+						icon = "tech-desktop"
+					}
+					report Exitsing_Form_Report
+					{
+						icon = "tech-desktop"
+					}
+			}
+			preference
+			{
+				icon
+				{
+					style = solid
+					show = {space,section,component}
+				}
+			}
+		}
+		customize
+		{
+			layout
+			{
+				theme = "theme_12"
+			}
+			font = "lato"
+			color options
+			{
+				name = "custom_color_5"
+				brand color = "#2f78d0"
+				navigation background color = "#cedbfa"
+				type = "custom"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Building_Details
+			{
+				label placement = auto
+			}
+			form Exitsing_Form
+			{
+				label placement = auto
+			}
+			form Rent_Due_details
+			{
+				label placement = auto
+			}
+			form Rent_Payment_Details
+			{
+				label placement = auto
+			}
+			form Tenant_Details
+			{
+				label placement = auto
+			}
+			form Unit_Details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				name = "custom_color_5"
+				brand color = "#2f78d0"
+				navigation background color = "#cedbfa"
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Building_Details
+			{
+				label placement = auto
+			}
+			form Exitsing_Form
+			{
+				label placement = auto
+			}
+			form Rent_Due_details
+			{
+				label placement = auto
+			}
+			form Rent_Payment_Details
+			{
+				label placement = auto
+			}
+			form Tenant_Details
+			{
+				label placement = auto
+			}
+			form Unit_Details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				name = "custom_color_5"
+				brand color = "#2f78d0"
+				navigation background color = "#cedbfa"
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}

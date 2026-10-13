@@ -1,0 +1,3937 @@
+/*
+ * Author       : mkmtraining242
+ * Generated on : 13-Oct-2026 12:27:27
+ * Version      : 1.0
+ */
+ application "FLEET MANGANEMENT   SYSTEM"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Diver_Details
+		{
+			displayname = "Diver Details"
+			success message = "Diver Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Diver_Name
+			(
+    			type = name
+				displayname = "Diver Name "
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Diver_ID
+			(
+    			type = text
+				displayname = "Diver ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Location
+			(
+    			type = text
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			License_Type
+			(
+				type = picklist
+				displayname = "License Type"
+				maxchar = 100
+				values = {"Permanent Driving Licence","Commercial Driving Licence"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			License_Number
+			(
+    			type = text
+				displayname = "License Number"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			License_issue_date
+			(
+    			type = date
+				displayname = "License issue date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			License_Expiry
+			(
+    			type = date
+				displayname = "License Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Status
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Active","IN-Active"}
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			demo
+			(
+    			type = text
+				displayname = "demo "
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Empolyee_details
+		{
+			displayname = "Empolyee details"
+			success message = "Empolyee Detail Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Employee_name
+			(
+    			type = name
+				displayname = "Employee name "
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			unique Employee_iD
+			(
+    			type = text
+				displayname = "Employee iD"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			must have Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 2   
+				width = medium
+				personal data = true
+			)
+			Employee_image
+			(
+    			type = image
+				displayname = "Employee image"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			must have Department
+			(
+    			type = text
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Section1
+			(
+				type = section
+				displayname = "Section"
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			Roles
+			(
+				type = picklist	
+				values  = Roles.ID
+    			displayformat = [Role]
+				sortorder = ascending
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Empolyee details","Stage2","Stage3","stage 4"}
+			}
+		}
+		form Fuel_Details
+		{
+			displayname = "Fuel Details"
+			success message = "Fuel Detail Added Successfully"
+			Vehicle_detials
+			(
+				type = section
+				displayname = "Vehicle  detials"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Vehicle
+			(
+				type = picklist	
+				displayname = "Vehicle   Type"
+				values  = Vehicle_Details.ID
+    			displayformat = [Vehicle_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have vehicle_NO
+			(
+    			type = text
+				displayname = "vehicle NO"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Vehicle_Model
+			(
+				type = picklist	
+				displayname = "Vehicle  Model"
+				values  = Vehicle_Details[ID == input.Vehicle].ID
+    			displayformat = [Vehicle_Model]
+				sortorder = ascending
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Fuel_Type
+			(
+    			type = text
+				displayname = "Fuel Type"
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Current_Odometer
+			(
+    			type = text
+				displayname = "Current Odometer"
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Fuel_Details
+			(
+				type = section
+				displayname = "Fuel  Details"
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			must have Cost_per_liter
+			(
+				displayname = "Cost per liter"
+				type = INR
+				format = commadotindian
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have fuel_Rate
+			(
+				displayname = "fuel Rate "
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			fuel
+			(
+				type = number
+				displayname = "fuel  Qunatity"
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			fuel_date
+			(
+    			type = date
+				displayname = "fuel date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 1,2,3,4,5,6
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			Station_Location
+			(
+    			type = text
+				displayname = "Station Location"
+	 			row = 2
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Maintenance_details
+		{
+			displayname = "Maintenance  details"
+			success message = "Data Added Successfully!"
+			Vehicle_Maintenance
+			(
+				type = section
+				displayname = "Vehicle Maintenance"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Vehicle_NO
+			(
+				type = picklist	
+				displayname = "Vehicle NO"
+				values  = Vehicle_Details.ID
+    			displayformat = [Vehicle_No]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Odometer
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Maintenance_type
+			(
+				type = picklist
+				displayname = "Maintenance type"
+				maxchar = 100
+				values = {"Preventive Maintenance","Corrective Maintenance"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Cost
+			(
+				type = INR
+				format = commadotindian
+				initial value = 0
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Service_Date
+			(
+    			type = date
+				displayname = "Service Date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 1,2,3,4,5,6
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Service_Provider
+			(
+				type = picklist
+				displayname = "Service Provider"
+				maxchar = 100
+				values = {"XYZ Motor","SENSE Motor","ABC Motor"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Next_Service
+			(
+    			type = date
+				displayname = "Next Service "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			next_Service_Odometer
+			(
+				type = number
+				displayname = "next Service  Odometer"
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Status
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"In- Progress","Completed"}
+				layout = 2
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Section
+			(
+				type = section
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Roles
+		{
+			success message = "Role Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Dpet
+			(
+				type = picklist	
+				displayname = "Department"
+				values  = Empolyee_details.ID
+    			displayformat = [Department]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Role
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Trip_details
+		{
+			displayname = "Trip details"
+			success message = "Trip Detail Added Successfully"
+			Trip_details
+			(
+				type = section
+				displayname = "Trip  details"
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Trip_NO
+			(
+    			type = autonumber
+				displayname = "Trip NO"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Empolyee_ID
+			(
+				type = picklist	
+				displayname = "Empolyee ID"
+				values  = Empolyee_details.ID
+    			displayformat = [Employee_iD]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have unique Employee_name
+			(
+    			type = text
+				displayname = "Employee  name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Trip_date
+			(
+    			type = date
+				displayname = "Trip  date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Source
+			(
+    			type = text
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Destination
+			(
+    			type = text
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Purpose
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Vehicle_Type
+			(
+				type = picklist	
+				displayname = "Vehicle Type"
+				values  = Vehicle_Details.ID
+    			displayformat = [Vehicle_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Vehicle_No
+			(
+				type = picklist	
+				displayname = "Vehicle No"
+				values  = Vehicle_Details[ID == input.Vehicle_Type].ID
+    			displayformat = [Vehicle_No]
+				sortorder = ascending
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Start_Odometer
+			(
+    			type = text
+				displayname = "Start Odometer"
+				initial value = ".00"
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			End_Odometer
+			(
+				type = decimal
+				displayname = "End Odometer"
+				initial value = .00
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Distance_Covered
+			(
+				type = number
+				displayname = "Distance  Covered"
+				initial value = 0
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			must have trip_Status
+			(
+				type = picklist
+				displayname = "trip  Status"
+				maxchar = 100
+				values = {"Requested","Approved","Started","Completed","Cancelled"}
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vechicle_Docmuments
+		{
+			displayname = "Vechicle Docmuments"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Vehicle_No
+			(
+				type = picklist	
+				displayname = "Vehicle No"
+				values  = Vehicle_Details.ID
+    			displayformat = [Vehicle_No]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Insurance_Certificate
+			(
+    			type = upload file
+				displayname = "Insurance Certificate"
+				browse = local_drive
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Insurance_Expiry
+			(
+    			type = date
+				displayname = "Insurance Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Pollution_Certificate
+			(
+    			type = upload file
+				displayname = "Pollution Certificate"
+				browse = local_drive
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Pollution_Certificate_Expiry
+			(
+    			type = date
+				displayname = "Pollution Certificate Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Registration_Certificate
+			(
+    			type = upload file
+				displayname = "Registration Certificate"
+				browse = local_drive
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Registration_Expiry
+			(
+    			type = date
+				displayname = "Registration Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vehicle_Details
+		{
+			displayname = "Vehicle Details"
+			success message = "Vehicle Detail Added Successfully"
+			Vehicle_Details
+			(
+				type = section
+				displayname = "Vehicle  Details"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			unique Vehicle_ID
+			(
+    			type = text
+				displayname = "Vehicle ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have unique Vehicle_No
+			(
+    			type = text
+				displayname = "Vehicle No"
+				maxchar = 10
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vehicle_Model
+			(
+    			type = text
+				displayname = "Vehicle Model"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vehicle_Type
+			(
+				type = picklist
+				displayname = "Vehicle Type "
+				maxchar = 100
+				values = {"SUV","Van","Car"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Vehicle
+			(
+				type = picklist
+				displayname = " Vehicle Status"
+				maxchar = 100
+				values = {"Available","In Use","Under Maintenance","Inactive"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			must have Fuel_Type
+			(
+				type = picklist
+				displayname = "Fuel Type"
+				maxchar = 100
+				values = {"Petrol","Diesel"}
+	 			row = 1
+	 			column = 2   
+				width = medium
+			)
+			Purchase_Date
+			(
+    			type = date
+				displayname = "Purchase  Date "
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Current_Odameter
+			(
+				type = decimal
+				displayname = "Current  Odometer"
+				maxchar = 6
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Fuel_consumption1
+			(
+    			type = text
+				displayname = "Fuel consumption "
+				initial value = "0"
+				maxchar = 30
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Meliage
+			(
+    			type = text
+				initial value = "0"
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Auto_Number
+			(
+    			type = autonumber
+				displayname = "Auto Number"
+				start index = 1
+	 			row = 1
+	 			column = 3   
+				width = medium
+			)
+			Vehicle_Document_Details
+			(
+				type = section
+				displayname = "Vehicle  Document  Details "
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			must have Insurance_Expiry_Date
+			(
+    			type = date
+				displayname = "Insurance Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Registration_Expiry
+			(
+    			type = date
+				displayname = "Registration Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 2   
+				width = medium
+			)
+			must have Pollution_Certificate_Expiry
+			(
+    			type = date
+				displayname = "Pollution Certificate Expiry"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 2
+	 			column = 3   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Resume","Accept","Reject","Apptitude","Accepted apptitude","Rejected","Offer"}
+			}
+		}
+	}
+	reports
+	{
+		default kanban All_Vehicle_Details
+		{
+			displayName = "All Vehicle Details"
+			show all rows from Vehicle_Details    
+			(
+				Vehicle_No as "Vehicle No"
+				Vehicle_Type as "Vehicle Type "
+				Vehicle_Model as "Vehicle Model"
+				Purchase_Date as "Purchase  Date "
+				Fuel_Type as "Fuel Type"
+				Current_Odameter as "Current  Odometer"
+				Vehicle as " Vehicle Status"
+				Auto_Number as "Auto Number"
+				Insurance_Expiry_Date as "Insurance Expiry"
+				Registration_Expiry as "Registration Expiry"
+				Pollution_Certificate_Expiry as "Pollution Certificate Expiry"
+				Fuel_consumption1 as "Fuel consumption "
+				Meliage
+				Vehicle_ID as "Vehicle ID"
+			)
+			options
+			(
+	 			display field = Vehicle_Type
+	 		)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Vehicle == "Available")
+				fields = [Vehicle]
+				format = "font-weight:bold;background-color:#38d7bb;"
+				}
+				"New Formatting"
+				{
+				condition = (Vehicle == "In Use")
+				fields = [Vehicle]
+				format = "font-weight:bold;background-color:#11b1cc;"
+				}
+				"New Formatting"
+				{
+				condition = (Vehicle == "Under Maintenance")
+				fields = [Vehicle]
+				format = "font-weight:bold;color:#ffffff;background-color:#7c7c7c;"
+				}
+			)
+		}
+		default summary All_Diver_Details
+		{
+			displayName = "All Diver Details"
+			show all rows from Diver_Details    
+			(
+				Diver_Name  as "Diver Name "
+				Diver_ID as "Diver ID"
+				License_Number as "License Number"
+				License_Type as "License Type"
+				License_Expiry as "License Expiry"
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Status
+				License_issue_date as "License issue date"
+				Location
+				Email
+				demo as "demo "
+			)
+			options
+			(
+				display rows = 10
+				display records per row = 2
+			)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Status == "Active")
+				fields = [Status]
+				format = "font-weight:bold;color:#595959;background-color:#398ef3;"
+				}
+				"New Formatting"
+				{
+				condition = (Status == "IN-Active")
+				fields = [Status]
+				format = "font-weight:bold;background-color:#cc115e;"
+				}
+			)
+		}
+		default kanban All_Fuel_Details
+		{
+			displayName = "All Fuel Details"
+			show all rows from Fuel_Details    
+			(
+				Vehicle as "Vehicle   Type"
+				fuel_date as "fuel date"
+				fuel as "fuel  Qunatity"
+				fuel_Rate as "fuel Rate "
+				Station_Location as "Station Location"
+				Cost_per_liter as "Cost per liter"
+				Fuel_Type as "Fuel Type"
+				Current_Odometer as "Current Odometer"
+				Vehicle_Model as "Vehicle  Model"
+				vehicle_NO as "vehicle NO"
+			)
+			options
+			(
+	 			display field = Vehicle
+	 		)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				condition = (Vehicle.Fuel_Type == "Petrol")
+				fields = [Vehicle]
+				format = "font-weight:bold;color:#ffffff;background-color:#efb116;"
+				}
+				"New Formatting"
+				{
+				condition = (Vehicle_Model.Fuel_Type == "Diesel")
+				fields = [Vehicle]
+				format = "font-weight:bold;background-color:#d2e9d1;"
+				}
+				"New Formatting"
+				{
+				condition = (Vehicle_Model.Fuel_Type == "Petrol")
+				fields = [Fuel_Type]
+				format = "font-weight:bold;color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting"
+				{
+				condition = (Vehicle.Fuel_Type == "Diesel")
+				fields = [Fuel_Type]
+				format = "font-weight:bold;color:#595959;background-color:#3598db;"
+				}
+			)
+		}
+		default kanban Maintenance_details_Report
+		{
+			displayName = "Maintenance  details Report"
+			show all rows from Maintenance_details    
+			(
+				Vehicle_NO as "Vehicle NO"
+				Maintenance_type as "Maintenance type"
+				Service_Date as "Service Date"
+				Cost
+				next_Service_Odometer as "next Service  Odometer"
+				Odometer
+				Service_Provider as "Service Provider"
+				Next_Service as "Next Service "
+				Status
+			)
+			options
+			(
+	 			display field = Maintenance_type
+	 		)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				fields = [Maintenance_type]
+				format = "color:#ffffff;background-color:#107c91;"
+				}
+			)
+		}
+		default kanban All_Trip_Details
+		{
+			displayName = "All Trip Details"
+			show all rows from Trip_details    
+			(
+				Empolyee_ID as "Empolyee ID"
+				Employee_name as "Employee  name"
+				Trip_date as "Trip  date"
+				Trip_NO as "Trip NO"
+				Distance_Covered as "Distance  Covered"
+				Vehicle_Type as "Vehicle Type"
+				Vehicle_No as "Vehicle No"
+				Purpose
+				Source
+				Destination
+				trip_Status as "trip  Status"
+				Start_Odometer as "Start Odometer"
+				End_Odometer as "End Odometer"
+				Empolyee_ID.Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Empolyee_ID.Employee_image as "Employee image"
+			)
+			options
+			(
+	 			display field = Empolyee_ID
+	 		)
+		}
+		default list All_Empolyee_Details
+		{
+			displayName = "All Empolyee Details"
+			show all rows from Empolyee_details    
+			(
+				Employee_name  as "Employee name "
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+				)
+				Email
+				Employee_iD as "Employee iD"
+				Employee_image as "Employee image"
+				Department
+				Roles
+				Modified_User as "Modified User"
+				Added_User as "Added User"
+				Added_Time as "Added Time"
+			)
+		}
+		default kanban Vechicle_Docmuments_Report
+		{
+			displayName = "Vechicle Docmuments Report"
+			show all rows from Vechicle_Docmuments    
+			(
+				Vehicle_No as "Vehicle No"
+				Vehicle_No.Vehicle_ID as "Vehicle ID"
+				Vehicle_No.Vehicle_No as "Vehicle No"
+				Vehicle_No.Vehicle_Model as "Vehicle Model"
+				Vehicle_No.Vehicle_Type as "Vehicle Type "
+				Insurance_Expiry as "Insurance Expiry"
+				Pollution_Certificate_Expiry as "Pollution Certificate Expiry"
+				Registration_Expiry as "Registration Expiry"
+			)
+			options
+			(
+	 			display field = Vehicle_No
+	 		)
+			conditional formatting
+			(
+				"New Formatting"
+				{
+				fields = [Vehicle_No]
+				format = "font-weight:bold;color:#ffffff;background-color:#107c91;"
+				}
+			)
+		}
+		default list All_Roles
+		{
+			displayName = "All Roles"
+			show all rows from Roles    
+			(
+				Role
+				Dpet as "Department"
+			)
+		}
+	}
+	pages
+	{
+		page Dashboard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<dsp id='html_snippet' elementName='HTML Snippet'\n bgColor=\"#FFFFFF\" \n>\n\t<![CDATA[htmlpage html_snippet()\ncontent\n&lt;%{\n\ttotal_vehicles = Vehicle_Details[ID != null].count();\n\tavailable_vehicles = Vehicle_Details[Vehicle == &quot;Available&quot;].count();\n\tin_use_vehicles = Vehicle_Details[Vehicle == &quot;In Use&quot;].count();\n\tmaintenance_vehicles = Vehicle_Details[Vehicle == &quot;Under Maintenance&quot;].count();\n\tinactive_vehicles = Vehicle_Details[Vehicle == &quot;Inactive&quot;].count();\n\ttotal_drivers = Diver_Details[ID != null].count();\n\tactive_drivers = Diver_Details[Status == &quot;Active&quot;].count();\n\ttotal_employees = Empolyee_details[ID != null].count();\n\ttotal_fuel_records = Fuel_Details[ID != null].count();\n\ttotal_maintenance = Maintenance_details[ID != null].count();\n\ttotal_trips = Trip_details[ID != null].count();\n\ttotal_documents = Vechicle_Docmuments[ID != null].count();\n\t%&gt;\nexpiring_insurance = Vehicle_Details[\n\tInsurance_Expiry_Date != null &amp;&amp;\n\tInsurance_Expiry_Date &gt;= zoho.currentdate &amp;&amp;\n\tInsurance_Expiry_Date &lt;= zoho.currentdate.addDay(30)\n].count();\n\nexpiring_registration = Vehicle_Details[\n\tRegistration_Expiry != null &amp;&amp;\n\tRegistration_Expiry &gt;= zoho.currentdate &amp;&amp;\n\tRegistration_Expiry &lt;= zoho.currentdate.addDay(30)\n].count();\n\nexpiring_pollution = Vehicle_Details[\n\tPollution_Certificate_Expiry != null &amp;&amp;\n\tPollution_Certificate_Expiry &gt;= zoho.currentdate &amp;&amp;\n\tPollution_Certificate_Expiry &lt;= zoho.currentdate.addDay(30)\n].count();\n\nexpiring_documents = expiring_insurance + expiring_registration + expiring_pollution;\n\n\n/* =========================\n   UPCOMING MAINTENANCE\n   Future Service_Date within 30 days\n\n   Note:\n   Export contains Service_Date only,\n   not a separate Next_Service_Date.\n   ========================= */\n\nupcoming_services = Maintenance_details[\n\tService_Date != null &amp;&amp;\n\tService_Date &gt;= zoho.currentdate &amp;&amp;\n\tService_Date &lt;= zoho.currentdate.addDay(30)\n].count();\n\n\n/* =========================\n   TRIP STATUS\n   ========================= */\n\nrequested_trips = Trip_details[\n\ttrip_Status == &quot;Requested&quot;\n].count();\n\napproved_trips = Trip_details[\n\ttrip_Status == &quot;Approved&quot;\n].count();\n\nstarted_trips = Trip_details[\n\ttrip_Status == &quot;Started&quot;\n].count();\n\ncompleted_trips = Trip_details[\n\ttrip_Status == &quot;Completed&quot;\n].count();\n\ncancelled_trips = Trip_details[\n\ttrip_Status == &quot;Cancelled&quot;\n].count();\n\n\n/* =========================\n   VEHICLE TYPE\n   ========================= */\n\ncar_count = Vehicle_Details[\n\tVehicle_Type == &quot;Car&quot;\n].count();\n\nsuv_count = Vehicle_Details[\n\tVehicle_Type == &quot;SUV&quot;\n].count();\n\nvan_count = Vehicle_Details[\n\tVehicle_Type == &quot;Van&quot;\n].count();\n\n\n/* =========================\n   FUEL TYPE\n   ========================= */\n\npetrol_count = Vehicle_Details[\n\tFuel_Type == &quot;Petrol&quot;\n].count();\n\ndiesel_count = Vehicle_Details[\n\tFuel_Type == &quot;Diesel&quot;\n].count();\n```\n\n\n\n&lt;style&gt;\n\n* {\n\tbox-sizing: border-box;\n\tmargin: 0;\n\tpadding: 0;\n\tfont-family: Arial, Helvetica, sans-serif;\n}\n\nbody {\n\tbackground: #1d508e;\n\tcolor: #ffffff;\n}\n\n.fleet-dashboard {\n\tmin-height: 100vh;\n\tpadding: 24px;\n\tbackground:\n\t\tradial-gradient(circle at top right, rgba(46,183,159,0.20), transparent 30%),\n\t\t#1d508e;\n}\n\n\n/* =========================\n   HEADER\n   ========================= */\n\n.dashboard-header {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tmargin-bottom: 25px;\n}\n\n.brand-area {\n\tdisplay: flex;\n\talign-items: center;\n\tgap: 15px;\n}\n\n.brand-icon {\n\twidth: 52px;\n\theight: 52px;\n\tborder-radius: 14px;\n\tbackground: #2eb79f;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 25px;\n\tbox-shadow: 0 10px 25px rgba(0,0,0,0.20);\n}\n\n.brand-title {\n\tfont-size: 26px;\n\tfont-weight: 700;\n}\n\n.brand-subtitle {\n\tcolor: rgba(255,255,255,0.70);\n\tmargin-top: 4px;\n\tfont-size: 13px;\n}\n\n.header-date {\n\tbackground: rgba(255,255,255,0.10);\n\tborder: 1px solid rgba(255,255,255,0.15);\n\tpadding: 12px 18px;\n\tborder-radius: 12px;\n\tfont-size: 13px;\n}\n\n\n/* =========================\n   QUICK NAVIGATION\n   ========================= */\n\n.quick-nav {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(7, 1fr);\n\tgap: 10px;\n\tmargin-bottom: 24px;\n}\n\n.nav-button {\n\ttext-decoration: none;\n\tcolor: #ffffff;\n\tbackground: rgba(255,255,255,0.10);\n\tborder: 1px solid rgba(255,255,255,0.13);\n\tborder-radius: 12px;\n\tpadding: 13px 8px;\n\ttext-align: center;\n\tfont-size: 12px;\n\tfont-weight: 600;\n\ttransition: 0.2s;\n}\n\n.nav-button:hover {\n\tbackground: #2eb79f;\n\ttransform: translateY(-2px);\n}\n\n.nav-icon {\n\tfont-size: 18px;\n\tdisplay: block;\n\tmargin-bottom: 5px;\n}\n\n\n/* =========================\n   SECTION TITLE\n   ========================= */\n\n.section-title {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tmargin: 20px 0 12px;\n}\n\n.section-title h2 {\n\tfont-size: 17px;\n}\n\n.section-title span {\n\tfont-size: 12px;\n\tcolor: rgba(255,255,255,0.65);\n}\n\n\n/* =========================\n   KPI CARDS\n   ========================= */\n\n.kpi-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(4, 1fr);\n\tgap: 15px;\n}\n\n.kpi-card {\n\tbackground: #ffffff;\n\tcolor: #182635;\n\tborder-radius: 17px;\n\tpadding: 20px;\n\tposition: relative;\n\toverflow: hidden;\n\tbox-shadow: 0 10px 30px rgba(0,0,0,0.16);\n}\n\n.kpi-card::after {\n\tcontent: &quot;&quot;;\n\tposition: absolute;\n\tright: -30px;\n\ttop: -30px;\n\twidth: 100px;\n\theight: 100px;\n\tborder-radius: 50%;\n\tbackground: rgba(46,183,159,0.12);\n}\n\n.kpi-top {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n}\n\n.kpi-icon {\n\twidth: 42px;\n\theight: 42px;\n\tborder-radius: 12px;\n\tbackground: rgba(46,183,159,0.13);\n\tcolor: #2eb79f;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 20px;\n}\n\n.kpi-label {\n\tfont-size: 12px;\n\tcolor: #73808d;\n\tmargin-top: 15px;\n}\n\n.kpi-value {\n\tfont-size: 30px;\n\tfont-weight: 700;\n\tmargin-top: 4px;\n\tcolor: #172536;\n}\n\n.kpi-link {\n\tdisplay: inline-block;\n\tmargin-top: 10px;\n\tfont-size: 11px;\n\tcolor: #2eb79f;\n\ttext-decoration: none;\n\tfont-weight: 600;\n}\n\n\n/* =========================\n   STATUS CARDS\n   ========================= */\n\n.status-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(4, 1fr);\n\tgap: 15px;\n}\n\n.status-card {\n\tbackground: rgba(255,255,255,0.10);\n\tborder: 1px solid rgba(255,255,255,0.13);\n\tborder-radius: 15px;\n\tpadding: 18px;\n}\n\n.status-name {\n\tfont-size: 12px;\n\tcolor: rgba(255,255,255,0.70);\n}\n\n.status-value {\n\tfont-size: 26px;\n\tfont-weight: 700;\n\tmargin-top: 8px;\n}\n\n.status-bar {\n\theight: 5px;\n\tbackground: rgba(255,255,255,0.15);\n\tborder-radius: 20px;\n\tmargin-top: 14px;\n\toverflow: hidden;\n}\n\n.status-fill {\n\theight: 100%;\n\tbackground: #2eb79f;\n\tborder-radius: 20px;\n}\n\n\n/* =========================\n   TWO COLUMN AREA\n   ========================= */\n\n.content-grid {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgap: 18px;\n\tmargin-top: 18px;\n}\n\n.panel {\n\tbackground: rgba(255,255,255,0.10);\n\tborder: 1px solid rgba(255,255,255,0.13);\n\tborder-radius: 17px;\n\tpadding: 20px;\n}\n\n.panel h3 {\n\tfont-size: 16px;\n\tmargin-bottom: 18px;\n}\n\n\n/* =========================\n   METRIC ROW\n   ========================= */\n\n.metric-row {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\tpadding: 11px 0;\n\tborder-bottom: 1px solid rgba(255,255,255,0.09);\n}\n\n.metric-row:last-child {\n\tborder-bottom: 0;\n}\n\n.metric-name {\n\tfont-size: 13px;\n\tcolor: rgba(255,255,255,0.75);\n}\n\n.metric-value {\n\tfont-size: 14px;\n\tfont-weight: 700;\n\tcolor: #ffffff;\n}\n\n.metric-action {\n\ttext-decoration: none;\n\tcolor: #2eb79f;\n\tfont-size: 11px;\n}\n\n\n/* =========================\n   QUICK ACTIONS\n   ========================= */\n\n.action-grid {\n\tdisplay: grid;\n\tgrid-template-columns: repeat(4, 1fr);\n\tgap: 12px;\n}\n\n.action-card {\n\ttext-decoration: none;\n\tcolor: #ffffff;\n\tbackground: rgba(255,255,255,0.08);\n\tborder: 1px solid rgba(255,255,255,0.12);\n\tpadding: 18px 12px;\n\tborder-radius: 14px;\n\ttext-align: center;\n\ttransition: 0.2s;\n}\n\n.action-card:hover {\n\tbackground: #2eb79f;\n\ttransform: translateY(-3px);\n}\n\n.action-icon {\n\tfont-size: 25px;\n\tmargin-bottom: 8px;\n}\n\n.action-title {\n\tfont-size: 12px;\n\tfont-weight: 600;\n}\n\n\n/* =========================\n   FOOTER\n   ========================= */\n\n.dashboard-footer {\n\ttext-align: center;\n\tmargin-top: 25px;\n\tcolor: rgba(255,255,255,0.55);\n\tfont-size: 11px;\n}\n\n\n/* =========================\n   CREATOR PAGE WIDTH\n   ========================= */\n\n#zcPageLiveHtml {\n\tbackground: #1d508e !important;\n}\n\n\n/* =========================\n   RESPONSIVE\n   ========================= */\n\n@media(max-width: 1000px) {\n\n\t.quick-nav {\n\t\tgrid-template-columns: repeat(4, 1fr);\n\t}\n\n\t.kpi-grid,\n\t.status-grid {\n\t\tgrid-template-columns: repeat(2, 1fr);\n\t}\n\n\t.content-grid {\n\t\tgrid-template-columns: 1fr;\n\t}\n\n}\n\n@media(max-width: 600px) {\n\n\t.fleet-dashboard {\n\t\tpadding: 14px;\n\t}\n\n\t.dashboard-header {\n\t\talign-items: flex-start;\n\t\tgap: 12px;\n\t\tflex-direction: column;\n\t}\n\n\t.quick-nav {\n\t\tgrid-template-columns: repeat(2, 1fr);\n\t}\n\n\t.kpi-grid,\n\t.status-grid,\n\t.action-grid {\n\t\tgrid-template-columns: 1fr;\n\t}\n\n}\n\n&lt;/style&gt;\n\n&lt;div class=&quot;fleet-dashboard&quot;&gt;\n\n```\n&lt;!-- =========================\n     HEADER\n     ========================= --&gt;\n\n&lt;div class=&quot;dashboard-header&quot;&gt;\n\n\t&lt;div class=&quot;brand-area&quot;&gt;\n\n\t\t&lt;div class=&quot;brand-icon&quot;&gt;\n\t\t\t\uD83D\uDE99\n\t\t&lt;/div&gt;\n\n\t\t&lt;div&gt;\n\t\t\t&lt;div class=&quot;brand-title&quot;&gt;\n\t\t\t\tFleet Management System\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;brand-subtitle&quot;&gt;\n\t\t\t\tVehicle \u2022 Driver \u2022 Fuel \u2022 Maintenance \u2022 Trip Management\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\t&lt;div class=&quot;header-date&quot;&gt;\n\t\tUpdated: &lt;%=zoho.currentdate%&gt;\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- =========================\n     QUICK NAVIGATION\n     ========================= --&gt;\n\n&lt;div class=&quot;quick-nav&quot;&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Vehicle_Details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDE99&lt;/span&gt;\n\t\tVehicle\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Diver_Details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDC64&lt;/span&gt;\n\t\tDiver\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Empolyee_details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDC65&lt;/span&gt;\n\t\tEmployee\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Fuel_Details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\u26FD&lt;/span&gt;\n\t\tFuel\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Maintenance_details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDD27&lt;/span&gt;\n\t\tMaintenance\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Trip_details&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDEE3\uFE0F&lt;/span&gt;\n\t\tTrip\n\t&lt;/a&gt;\n\n\t&lt;a class=&quot;nav-button&quot; href=&quot;#Form:Vechicle_Docmuments&quot;&gt;\n\t\t&lt;span class=&quot;nav-icon&quot;&gt;\uD83D\uDCC4&lt;/span&gt;\n\t\tDocuments\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- =========================\n     MAIN KPI\n     ========================= --&gt;\n\n&lt;div class=&quot;section-title&quot;&gt;\n\t&lt;h2&gt;Fleet Overview&lt;/h2&gt;\n\t&lt;span&gt;Live records from Creator forms&lt;/span&gt;\n&lt;/div&gt;\n\n\n&lt;div class=&quot;kpi-grid&quot;&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Total Vehicles&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=total_vehicles%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\uD83D\uDE99\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:All_Vehicle_Details&quot;&gt;\n\t\t\tView All Vehicles \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Available Vehicles&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=available_vehicles%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\u2713\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:All_Vehicle_Details&quot;&gt;\n\t\t\tView Vehicle Status \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Vehicles In Use&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=in_use_vehicles%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\u2197\uFE0F\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:All_Vehicle_Details&quot;&gt;\n\t\t\tView Fleet \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Under Maintenance&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=maintenance_vehicles%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\uD83D\uDD27\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:Maintenance_details_Report&quot;&gt;\n\t\t\tView Maintenance \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Active Drivers&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=active_drivers%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\uD83D\uDC64\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:All_Diver_Details&quot;&gt;\n\t\t\tView Drivers \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\u26A0\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:Vechicle_Docmuments_Report&quot;&gt;\n\t\t\tView Documents \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\uD83D\uDEE0\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:Maintenance_details_Report&quot;&gt;\n\t\t\tView Services \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;kpi-card&quot;&gt;\n\n\t\t&lt;div class=&quot;kpi-top&quot;&gt;\n\t\t\t&lt;div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-label&quot;&gt;Total Trips&lt;/div&gt;\n\t\t\t\t&lt;div class=&quot;kpi-value&quot;&gt;&lt;%=total_trips%&gt;&lt;/div&gt;\n\t\t\t&lt;/div&gt;\n\n\t\t\t&lt;div class=&quot;kpi-icon&quot;&gt;\n\t\t\t\t\uD83D\uDEE3\uFE0F\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;a class=&quot;kpi-link&quot; href=&quot;#Report:All_Trip_Details&quot;&gt;\n\t\t\tView Trips \u2192\n\t\t&lt;/a&gt;\n\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- =========================\n     VEHICLE STATUS\n     ========================= --&gt;\n\n&lt;div class=&quot;section-title&quot;&gt;\n\t&lt;h2&gt;Vehicle Status&lt;/h2&gt;\n\t&lt;span&gt;&lt;%=total_vehicles%&gt; total vehicles&lt;/span&gt;\n&lt;/div&gt;\n\n\n&lt;div class=&quot;status-grid&quot;&gt;\n\n\n\t&lt;div class=&quot;status-card&quot;&gt;\n\n\t\t&lt;div class=&quot;status-name&quot;&gt;\n\t\t\tAvailable\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-value&quot;&gt;\n\t\t\t&lt;%=available_vehicles%&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-bar&quot;&gt;\n\t\t\t&lt;div\n\t\t\t\tclass=&quot;status-fill&quot;\n\t\t\t\tstyle=&quot;width:&lt;%=if(total_vehicles &gt; 0,available_vehicles * 100 / total_vehicles,0)%&gt;%;&quot;&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;status-card&quot;&gt;\n\n\t\t&lt;div class=&quot;status-name&quot;&gt;\n\t\t\tIn Use\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-value&quot;&gt;\n\t\t\t&lt;%=in_use_vehicles%&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-bar&quot;&gt;\n\t\t\t&lt;div\n\t\t\t\tclass=&quot;status-fill&quot;\n\t\t\t\tstyle=&quot;width:&lt;%=if(total_vehicles &gt; 0,in_use_vehicles * 100 / total_vehicles,0)%&gt;%;&quot;&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;status-card&quot;&gt;\n\n\t\t&lt;div class=&quot;status-name&quot;&gt;\n\t\t\tUnder Maintenance\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-value&quot;&gt;\n\t\t\t&lt;%=maintenance_vehicles%&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-bar&quot;&gt;\n\t\t\t&lt;div\n\t\t\t\tclass=&quot;status-fill&quot;\n\t\t\t\tstyle=&quot;width:&lt;%=if(total_vehicles &gt; 0,maintenance_vehicles * 100 / total_vehicles,0)%&gt;%;&quot;&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;div class=&quot;status-card&quot;&gt;\n\n\t\t&lt;div class=&quot;status-name&quot;&gt;\n\t\t\tInactive\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-value&quot;&gt;\n\t\t\t&lt;%=inactive_vehicles%&gt;\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;status-bar&quot;&gt;\n\t\t\t&lt;div\n\t\t\t\tclass=&quot;status-fill&quot;\n\t\t\t\tstyle=&quot;width:&lt;%=if(total_vehicles &gt; 0,inactive_vehicles * 100 / total_vehicles,0)%&gt;%;&quot;&gt;\n\t\t\t&lt;/div&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- =========================\n     DETAILS\n     ========================= --&gt;\n\n&lt;div class=&quot;content-grid&quot;&gt;\n\n\n\t&lt;!-- TRIP STATUS --&gt;\n\n\t&lt;div class=&quot;panel&quot;&gt;\n\n\t\t&lt;h3&gt;Trip Status&lt;/h3&gt;\n\n\n\t\t&lt;div class=&quot;metric-row&quot;&gt;\n\t\t\t\n\t\t&lt;/div&gt;\n\n\t\t\n\n\t\t&lt;div class=&quot;metric-row&quot;&gt;\n\t\t\t&lt;a class=&quot;metric-action&quot; href=&quot;#Report:All_Trip_Details&quot;&gt;\n\t\t\t\tOpen All_Trip_Details \u2192\n\t\t\t&lt;/a&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;!-- VEHICLE TYPE --&gt;\n\n\t&lt;div class=&quot;panel&quot;&gt;\n\n\t\t&lt;h3&gt;Vehicle Type&lt;/h3&gt;\n\nl_count&lt;/span&gt;\n\t\t&lt;/div&gt;\n\n\t&lt;/div&gt;\n\n\n\t&lt;!-- DOCUMENT EXPIRY --&gt;\n\n\t&lt;div class=&quot;panel&quot;&gt;\n\n\t\t&lt;h3&gt;Document Expiry \u2014 Next 30 Days&lt;/h3&gt;\n\n\n\n&lt;!-- =========================\n     QUICK ACTIONS\n     ========================= --&gt;\n\n&lt;div class=&quot;section-title&quot;&gt;\n\t&lt;h2&gt;Quick Actions&lt;/h2&gt;\n\t&lt;span&gt;Open actual Creator forms&lt;/span&gt;\n&lt;/div&gt;\n\n\n&lt;div class=&quot;action-grid&quot;&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Vehicle_Details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDE99\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAdd Vehicle\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Diver_Details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDC64\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAdd Diver\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Empolyee_details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDC65\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAdd Employee\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Fuel_Details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\u26FD\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAdd Fuel\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Maintenance_details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDD27\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAdd Maintenance\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Trip_details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDEE3\uFE0F\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tCreate Trip\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Form:Vechicle_Docmuments&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDCC4\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tUpload Documents\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Vehicle_Details&quot;&gt;\n\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\n\t\t\t\uD83D\uDCCA\n\t\t&lt;/div&gt;\n\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tVehicle Report\n\t\t&lt;/div&gt;\n\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;!-- =========================\n     REPORT NAVIGATION\n     ========================= --&gt;\n\n&lt;div class=&quot;section-title&quot;&gt;\n\t&lt;h2&gt;Reports&lt;/h2&gt;\n\t&lt;span&gt;Actual reports from the export&lt;/span&gt;\n&lt;/div&gt;\n\n\n&lt;div class=&quot;action-grid&quot;&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Vehicle_Details&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDE99&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAll_Vehicle_Details\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Diver_Details&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDC64&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAll_Diver_Details\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Fuel_Details&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\u26FD&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAll_Fuel_Details\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:Maintenance_details_Report&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDD27&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tMaintenance_details_Report\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Trip_Details&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDEE3\uFE0F&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAll_Trip_Details\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:All_Empolyee_Details&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDC65&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tAll_Empolyee_Details\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n\n\t&lt;a class=&quot;action-card&quot; href=&quot;#Report:Vechicle_Docmuments_Report&quot;&gt;\n\t\t&lt;div class=&quot;action-icon&quot;&gt;\uD83D\uDCC4&lt;/div&gt;\n\t\t&lt;div class=&quot;action-title&quot;&gt;\n\t\t\tVechicle_Docmuments_Report\n\t\t&lt;/div&gt;\n\t&lt;/a&gt;\n\n&lt;/div&gt;\n\n\n&lt;div class=&quot;dashboard-footer&quot;&gt;\n\tFleet Management System \u2022 Zoho Creator\n&lt;/div&gt;\n```\n\n&lt;/div&gt;\n&lt;%\n\n}%&gt;]]>\n</dsp>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+	variables
+	{
+		thisapp.variables.Organisation = "Messi";
+
+		thisapp.variables.variable_test.test = " a book or a short piece of writing that people study as part of a literature or language course.";
+	}
+
+
+
+		workflow
+		{
+		form
+		{
+			disable_ID as "disable  ID"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add
+
+				field rules
+				{
+					actions 
+					{
+						hide Vehicle_ID;
+					}
+				}
+
+			}
+			ID_genrate as "ID genrate"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Vehicle_ID = "RPM-777" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			Auto_vehicle_details as "Auto vehicle details"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add or edit
+
+				on user input of Purchase_Date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// purchase_Date = input.Vehicel_Purchase_Date;
+										// input.Insurance_Expiry_Date = purchase_Date.addYear(2);
+										// input.Registration_Expiry_Date = purchase_Date.addYear(15);
+										// input.Pollution_Certificate_Expiry_Date = purchase_Date.addYear(1)
+										pur = input.Purchase_Date;
+										input.Insurance_Expiry_Date = input.Purchase_Date.addYear(1);
+										input.Registration_Expiry = input.Purchase_Date.addYear(15);
+										input.Pollution_Certificate_Expiry = input.Purchase_Date.addYear(1);
+						)
+					}
+				}
+
+			}
+			Genrate_ID as "Genrate ID"
+			{
+				type =  form
+				form = Diver_Details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Diver_ID = "DIV-12345" + input.Auto_Number;
+										input.demo = thisapp.variables.Organisation;
+						)
+					}
+				}
+
+			}
+			Disable_ID1 as "Disable ID"
+			{
+				type =  form
+				form = Diver_Details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Diver_ID;
+					}
+				}
+
+			}
+			Expiry_date as "Expiry date"
+			{
+				type =  form
+				form = Diver_Details
+
+				record event = on add or edit
+
+				on user input of License_issue_date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											var = input.License_issue_date;
+										input.License_Expiry = input.License_issue_date.addYear(20);
+						)
+					}
+				}
+
+			}
+			ID_genrate1 as "ID genrate"
+			{
+				type =  form
+				form = Empolyee_details
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Employee_iD = "EMP-0007" + input.Auto_Number;
+						)
+					}
+				}
+
+			}
+			disable as "disable"
+			{
+				type =  form
+				form = Empolyee_details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						hide Employee_iD;
+					}
+				}
+
+			}
+			intergrate_form as "intergrate form"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											message_data = Map();
+										message_data.put("text","🚗 FleetOps Test\n\nZoho Cliq connection is working successfully.");
+										response = invokeurl
+										[
+											url :"https://cliq.zoho.in/api/v3/channels/O1230231000000002014/messages"
+											type :POST
+											parameters:message_data.toString()
+											connection:"zoho_cliq_connection1"
+											content-type:"application/json"
+										];
+										info response;
+						)
+					}
+				}
+
+			}
+			Doc_Intergration as "Doc Intergration"
+			{
+				type =  form
+				form = Vechicle_Docmuments
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											parent_folder_id = "z0x774378f33c67cf41ffa5227baa87b56109";
+										vehicle_folder_name = input.Vehicle_No.Vehicle_No;
+										vehicle_folder = zoho.workdrive.createFolder(vehicle_folder_name,parent_folder_id,"zoho_workdrive_connection");
+										vehicle_folder_id = vehicle_folder.get("data").get("id");
+										info vehicle_folder_id;
+										// Insurance folder
+										insurance_folder = zoho.workdrive.createFolder("Insurance",vehicle_folder_id,"zoho_workdrive_connection");
+										insurance_folder_id = insurance_folder.get("data").get("id");
+										info insurance_folder;
+										// RC folder
+										rc_folder = zoho.workdrive.createFolder("RC",vehicle_folder_id,"zoho_workdrive_connection");
+										rc_folder_id = rc_folder.get("data").get("id");
+										info rc_folder;
+										// Pollution folder
+										pollution_folder = zoho.workdrive.createFolder("Pollution Certificate",vehicle_folder_id,"zoho_workdrive_connection");
+										pollution_folder_id = pollution_folder.get("data").get("id");
+										info pollution_folder;
+										// INSURANCE DOCUMENT UPLOAD
+										if(input.Insurance_Certificate != null)
+										{
+											insurance_upload = zoho.workdrive.uploadFile(input.Insurance_Certificate,insurance_folder_id,input.Insurance_Certificate,true,"zoho_workdrive_connection");
+											info insurance_upload;
+										}
+										// RC DOCUMENT UPLOAD
+										if(input.Registration_Certificate != null)
+										{
+											rc_upload = zoho.workdrive.uploadFile(input.Registration_Certificate,rc_folder_id,input.Registration_Certificate,true,"zoho_workdrive_connection");
+											info rc_upload;
+										}
+										// POLLUTION CERTIFICATE UPLOAD
+										if(input.Pollution_Certificate != null)
+										{
+											pollution_upload = zoho.workdrive.uploadFile(input.Pollution_Certificate,pollution_folder_id,input.Pollution_Certificate,true,"zoho_workdrive_connection");
+											info pollution_upload;
+										}
+						)
+					}
+				}
+
+			}
+			Fetch_all_data as "Fetch_all_data"
+			{
+				type =  form
+				form = Fuel_Details
+
+				record event = on add or edit
+
+				on user input of Vehicle_Model
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Current_Odometer = input.Vehicle_Model.Current_Odameter;
+										Vehicle_NO = input.Vehicle_Model.Vehicle_No;
+										// input.Vehicle_NO:ui.add(input.Vehicle_Model.Vehicle_No.ID);
+										input.Fuel_Type = input.Vehicle_Model.Fuel_Type;
+										input.vehicle_NO = input.Vehicle_Model.Vehicle_No;
+						)
+					}
+				}
+
+			}
+			get_all as "get_all"
+			{
+				type =  form
+				form = Trip_details
+
+				record event = on add or edit
+
+				on user input of Empolyee_ID
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Employee_name = input.Empolyee_ID.Employee_name;
+										vehicle = input.Vehicle_Type.Vehicle_No;
+						)
+					}
+				}
+
+			}
+			fuel_action as "fuel action"
+			{
+				type =  form
+				form = Fuel_Details
+
+				record event = on add or edit
+
+				on user input of fuel
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.fuel_Rate = input.Cost_per_liter * input.fuel;
+						)
+					}
+				}
+
+			}
+			disable_fied as "disable fied"
+			{
+				type =  form
+				form = Fuel_Details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable fuel_Rate,Current_Odometer,fuel_date,Fuel_Type,vehicle_NO;
+					}
+				}
+
+			}
+			Fetch_data as "Fetch data"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+
+				on user input of Vehicle_NO
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Odometer = input.Vehicle_NO.Current_Odameter;
+						)
+					}
+				}
+
+			}
+			Convert_cost as "Convert cost"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+					status = inactive
+
+				on user input of Cost
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// if(input.Maintenance_type == "Preventive Maintenance")
+										// {
+										// 	input.Cost = 10;
+										// }
+						)
+					}
+				}
+
+			}
+			Cost as "Cost"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+
+				on user input of Maintenance_type
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Maintenance_type == "Preventive Maintenance")
+										{
+											input.Cost = 5000;
+										}
+										else if(input.Maintenance_type == "Corrective Maintenance")
+										{
+											input.Cost = 3000;
+										}
+										else if(input.Maintenance_type == "")
+										{
+											input.Cost = 0;
+										}
+						)
+					}
+				}
+
+			}
+			Next_Service_data as "Next Service data"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+
+				on user input of Service_Date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Next_Service = input.Service_Date.addMonth(7);
+						)
+					}
+				}
+
+			}
+			Get_Odameter as "Get_Odameter"
+			{
+				type =  form
+				form = Trip_details
+
+				record event = on add or edit
+
+				on user input of Vehicle_No
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Start_Odometer = input.Vehicle_No.Current_Odameter;
+						)
+					}
+				}
+
+			}
+			fetch_date as "fetch date"
+			{
+				type =  form
+				form = Trip_details
+
+				record event = on add or edit
+
+				on user input of Trip_date
+				{
+				}
+
+			}
+			disable_fied1 as "disable fied"
+			{
+				type =  form
+				form = Maintenance_details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Cost,Odometer;
+					}
+				}
+
+			}
+			disable_fied2 as "disable fied"
+			{
+				type =  form
+				form = Trip_details
+
+				record event = on add or edit
+
+				field rules
+				{
+					actions 
+					{
+						disable Start_Odometer,Employee_name,Distance_Covered;
+					}
+				}
+
+			}
+			validate as "validate"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add or edit
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Vehicle_No == null || input.Vehicle_No.trim() == " ")
+										{
+											alert "Vehicle No is requried";
+										}
+						)
+					}
+				}
+
+			}
+			validate1 as "validate"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Current_Odameter != null && input.Current_Odameter < 0)
+										{
+											alert "current Odometer cannot be negative";
+										}
+						)
+					}
+				}
+
+			}
+			items_adding_zoho_books as "items adding zoho books"
+			{
+				type =  form
+				form = Vehicle_Details
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											myitems = Map();
+										myitems.put("name",input.Vehicle_Model);
+										//headers_data = Map();
+										//headers_data.put("Authorization", "Zoho-oauthtoken 1000.41d9xxxxxxxxxxxxxxxxxxxxxxxxc2d1.8fccxxxxxxxxxxxxxxxxxxxxxxxx125f");
+										response = invokeurl
+										[
+											url :"https://www.zohoapis.in/books/v3/items?organization_id=60077296437"
+											type :POST
+											parameters:myitems.toString()
+											connection:"zoho_books_connection1"
+										];
+										info response;
+						)
+					}
+				}
+
+			}
+			User as "User"
+			{
+				type =  form
+				form = Empolyee_details
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											permissions = thisapp.permissions.assignUserInProfile(input.Email,"employee",true);
+						)
+					}
+				}
+
+			}
+			test as "test"
+			{
+				type =  form
+				form = Diver_Details
+
+				record event = on add or edit
+
+				on user input of Diver_Name
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											var = thisapp.variables.Organisation;
+						)
+					}
+				}
+
+			}
+			variable as "variable"
+			{
+				type =  form
+				form = Diver_Details
+
+				record event = on add or edit
+
+				on user input of Status
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// var = thisapp.variables.Organisation;
+										field = thisapp.variables.Organisation;
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			schedule_ittt as "schedule ittt"
+			{
+				type =  schedule
+					status = inactive
+				start = "2026-09-17 18:15:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						today = zoho.currentdate;
+										vehicles = Vehicle_Details[ID != 0];
+										for each  vehicle in vehicles
+										{
+											// =========================
+											// INSURANCE
+											// =========================
+											if(vehicle.Insurance_Expiry_Date != null)
+											{
+												days_left = today.daysBetween(vehicle.Insurance_Expiry_Date);
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Insurance Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Insurance_Expiry_Date.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Insurance\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Insurance_Expiry_Date.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+											}
+											// =========================
+											// REGISTRATION / RC
+											// =========================
+											if(vehicle.Registration_Expiry != null)
+											{
+												days_left = today.daysBetween(vehicle.Registration_Expiry);
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Registration Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Registration_Expiry.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Registration / RC\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Registration_Expiry.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+											}
+											// =========================
+											// POLLUTION
+											// =========================
+											if(vehicle.Pollution_Certificate_Expiry != null)
+											{
+												days_left = today.daysBetween(vehicle.Pollution_Certificate_Expiry);
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Pollution Certificate Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Pollution_Certificate_Expiry.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Pollution Certificate\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Pollution_Certificate_Expiry.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection");
+												}
+											}
+										}
+					)
+					}
+				}
+			}
+			schedule_Date_expriy as "schedule Date expriy"
+			{
+				type =  schedule
+				start = "2026-09-18 15:20:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						today = zoho.currentdate;
+										vehicles = Vehicle_Details[ID != 0];
+										info "Scheduler Started";
+										info "Today: " + today;
+										info "Vehicle Count: " + vehicles.count();
+										for each  vehicle in vehicles
+										{
+											info "Checking Vehicle: " + vehicle.Vehicle_No;
+											// ================= INSURANCE =================
+											if(vehicle.Insurance_Expiry_Date != null)
+											{
+												days_left = today.daysBetween(vehicle.Insurance_Expiry_Date);
+												info "Insurance Expiry: " + vehicle.Insurance_Expiry_Date;
+												info "Insurance Days Left: " + days_left;
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Insurance Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Insurance_Expiry_Date.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Insurance" + "\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Insurance_Expiry_Date.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+											}
+											// ================= REGISTRATION =================
+											if(vehicle.Registration_Expiry != null)
+											{
+												days_left = today.daysBetween(vehicle.Registration_Expiry);
+												info "Registration Expiry: " + vehicle.Registration_Expiry;
+												info "Registration Days Left: " + days_left;
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Registration Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Registration_Expiry.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Registration / RC" + "\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Registration_Expiry.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+											}
+											// ================= POLLUTION =================
+											if(vehicle.Pollution_Certificate_Expiry != null)
+											{
+												days_left = today.daysBetween(vehicle.Pollution_Certificate_Expiry);
+												info "Pollution Expiry: " + vehicle.Pollution_Certificate_Expiry;
+												info "Pollution Days Left: " + days_left;
+												if(days_left < 0)
+												{
+													message = "🔴 CRITICAL - Pollution Certificate Expired\n\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Pollution_Certificate_Expiry.toString("dd-MMM-yyyy");
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+												else if(days_left <= 30)
+												{
+													message = "⚠️ VEHICLE EXPIRY ALERT\n\nDocument: Pollution Certificate" + "\nVehicle: " + vehicle.Vehicle_No + "\nExpiry Date: " + vehicle.Pollution_Certificate_Expiry.toString("dd-MMM-yyyy") + "\nDays Remaining: " + days_left;
+													response = zoho.cliq.postToChannel("fleetmanagementsystem",message,"zoho_cliq_connection1");
+													info response;
+												}
+											}
+										}
+										info "Scheduler Completed";
+					)
+					}
+				}
+			}
+			scheduled_time_ as "scheduled  time "
+			{
+				type =  schedule
+				start = "2026-09-30 12:30:00"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "lakshmipathi2428@gmail.com"
+							subject : "scheduled flow"
+							message : "<div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 12px 0px 16px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 12px 0px 16px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-hveid=\"CAIIAAgACAoQDw\" data-sfc-root=\"ep\" data-sfc-cp=\"\" class=\"n6owBd awi2gc\"><span class=\"font\" style=\"font-family:&quot;Google Sans&quot;, Arial, sans-serif\"><span class=\"size\" style=\"font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\">A <a style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 500; margin: 0px; text-decoration: underline 1px rgb(26, 13, 171); border-bottom: 0px rgb(26, 13, 171);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 500; margin: 0px; text-decoration: underline 1px rgb(26, 13, 171); border-bottom: 0px rgb(26, 13, 171);\" aria-label=\"paragraph. Link preview. Site: Wikipedia. Title: Paragraph - Wikipedia. URL: https://en.wikipedia.org/wiki/Paragraph.\" href=\"https://en.wikipedia.org/wiki/Paragraph\" data-hveid=\"CAIIAAgACAoQEA\" data-ved=\"2ahUKEwjRyYP62pWXAxWPkeEIHfE7G9gQy_kOegoIAggACAAIChAQ\" rel=\"noopener\" target=\"_blank\" class=\"H23r4e\">paragraph</a></span></span> is a distinct unit of writing consisting of one or more sentences that focus on a single central idea or topic.<br></div><div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-hveid=\"CAIIAAgACAoQEQ\" data-ved=\"2ahUKEwjRyYP62pWXAxWPkeEIHfE7G9gQi4wTegoIAggACAAIChAR\" data-sfc-root=\"ep\" data-sfc-cp=\"\" class=\"\" data-bfc=\"\"><div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 12px 0px 16px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 12px 0px 16px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-hveid=\"CAIIAAgACAoQEg\" data-sfc-root=\"ep\" data-sfc-cp=\"\" class=\"n6owBd awi2gc\">According to the <span class=\"font\" style=\"font-family:&quot;Google Sans&quot;, Arial, sans-serif\"><span class=\"size\" style=\"font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\"><a style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 500; margin: 0px; text-decoration: underline 1px rgb(26, 13, 171); border-bottom: 0px rgb(26, 13, 171);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 500; margin: 0px; text-decoration: underline 1px rgb(26, 13, 171); border-bottom: 0px rgb(26, 13, 171);\" href=\"https://www.merriam-webster.com/dictionary/paragraph\" data-hveid=\"CAIIAAgACAoQEw\" data-ved=\"2ahUKEwjRyYP62pWXAxWPkeEIHfE7G9gQy_kOegoIAggACAAIChAT\" rel=\"noopener\" target=\"_blank\" class=\"H23r4e\">Merriam-Webster Definition</a></span></span>, it starts on a new line and visually breaks text into manageable, cohesive chunks.<br></div></div><div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-sfc-inited=\"2\" data-sfc-root=\"ep\" data-sfc-cp=\"\" class=\"yhAwj\"><br></div><div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px; font-weight: 400; margin: 0px; text-decoration: none; border-bottom: 0px rgb(10, 10, 10);\" data-hveid=\"CAIIAAgACAoQFA\" data-ved=\"2ahUKEwjRyYP62pWXAxWPkeEIHfE7G9gQi4wTegoIAggACAAIChAU\" data-sfc-root=\"ep\" data-sfc-cp=\"\" class=\"\" data-bfc=\"\"><div style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 20px; font-weight: 600; margin: 24px 0px 12px; text-decoration: none; border-bottom: 0px rgb(0, 29, 53);\" data-copy-service-computed-style=\"font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 20px; font-weight: 600; margin: 24px 0px 12px; text-decoration: none; border-bottom: 0px rgb(0, 29, 53);\" data-sfc-root=\"ep\" data-wiz-attrbind=\"aria-level=AQVNqf_1k/fLk2Md\" data-sfc-cp=\"\" data-animation-nesting=\"\" role=\"heading\" aria-level=\"3\" class=\"otQkpb\"><br></div></div><div><br></div>"
+							attachments : view : All_Diver_Details as PDF
+						)
+					}
+					actions 
+					{
+					on load
+					(
+						sendmail
+										[
+											from :zoho.loginuserid
+											to :"harshinisekarv@gmail.com"
+											subject :"Schedule"
+											message :"A paragraph is a distinct unit of writing consisting of one or more sentences that focus on a single central idea or topic.According to the Merriam-Webster Definition, it starts on a new line and visually breaks text into manageable, cohesive chunks."
+										]
+					)
+					}
+				}
+			}
+		}
+
+		approval
+		{
+			approval_test as "approval test"
+			{
+				type =  approval
+				form = Vehicle_Details[Vehicle == "Available" || Vehicle == "Under Maintenance"]
+				display fields = [Vehicle_ID,Vehicle_No,Vehicle_Model,Vehicle_Type,Vehicle,Fuel_Type,Purchase_Date]
+				on start
+				{
+				}
+				on level 1
+				{
+					approvers
+					(
+			 			role = "CEO"
+					)
+					on approve 
+					{
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been approved."
+							)
+						}
+						actions 
+						{
+						on load
+						(
+							sendmail
+												[
+													from :zoho.loginuserid
+													to :"harshinisekarv@gmail.com"
+													subject :"vechicle details "
+													message :"vechicle details and  approval "
+												]
+						)
+						}
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : zoho.loginuserid
+								to : approver.submitter
+								subject : "Approval Request"
+								message : "Your request has been rejected."
+							)
+						}
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.loginuserid"
+								to : "harshinisekarv@gmail.com"
+								subject : "Vechicle status Rejected"
+								message : "<div>&nbsp;vehicle details rejected</div>"
+							)
+						}
+					}
+				}
+			}
+		}
+
+		blueprint
+		{
+    			vehicle_blueprint as "vehicle blueprint"
+    			{
+        			type = Blueprint
+        			form = Vehicle_Details
+        			start
+        			{
+        			}
+        			stages
+        			{
+        			}
+        			transitions
+        			{
+        			}
+    			}
+    			vehicle_blueprint1 as "vehicle blueprint"
+    			{
+        			type = Blueprint
+        			form = Vehicle_Details
+        			start
+        			{
+        			}
+        			stages
+        			{
+        			}
+        			transitions
+        			{
+        			}
+    			}
+    			test as "test"
+    			{
+        			type = Blueprint
+        			form = Vehicle_Details
+        			start
+        			{
+            			start stage = "Resume"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,48.42,31.122506713867185,48.42,31.122506713867185,50,31.122506713867185,60]
+            			}
+        			}
+        			stages
+        			{
+           			"Resume"
+           			{
+               			chart data
+               			{
+                   			position : "-15.223052470852995 60"
+               			}
+           			}
+           			"Accept"
+           			{
+               			chart data
+               			{
+                   			position : "-161.44854372772488 145.03927029963074"
+               			}
+           			}
+           			"Reject"
+           			{
+               			chart data
+               			{
+                   			position : "136.4961434373032 162.1294641908551"
+               			}
+           			}
+           			"Apptitude"
+           			{
+               			chart data
+               			{
+                   			position : "-172.71791910550255 246.36212279532512"
+               			}
+           			}
+           			"Accepted apptitude"
+           			{
+               			chart data
+               			{
+                   			position : "-343.28143833673164 347.27887167380237"
+               			}
+           			}
+           			"Rejected"
+           			{
+               			chart data
+               			{
+                   			position : "51.1466998854857 354.3856849751036"
+               			}
+           			}
+           			"Offer"
+           			{
+               			chart data
+               			{
+                   			position : "-342.6915815744634 432.938755701849"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				Accept as "Accept"
+    				{
+         				type = normal
+         				from stage = "Resume"
+         				to stage = "Accept"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T5
+             				path      : [31.122506713867185,111.60782979522162,31.122506713867185,121.60782979522162,31.122506713867185,128.32355004742618,-95.3051195860363,128.32355004742618,-95.3051195860363,135.03927029963074,-95.3051195860363,145.03927029963074]
+        				}
+  				}
+    				onboard as "onboard"
+    				{
+         				type = normal
+         				from stage = "Accepted apptitude"
+         				to stage = "Offer"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B2
+             				to port   : T3
+             				path      : [-285.1167495475692,398.886701469024,-285.1167495475692,408.886701469024,-285.1167495475692,415.9127285854365,-304.2245319112276,415.9127285854365,-304.2245319112276,422.938755701849,-304.2245319112276,432.938755701849]
+        				}
+  				}
+    				Reject as "Reject"
+    				{
+         				type = normal
+         				from stage = "Resume"
+         				to stage = "Reject"
+         				before
+         				{
+         				}
+         				after
+         				{
+							actions 
+							{
+								custom deluge script
+								(
+															sendmail
+														[
+															from :zoho.loginuserid
+															to :"harshini3331@gmail.com"
+															subject :"Test purpose only"
+															message :"Rejected"
+														]
+								)
+							}
+         				}
+         				chart data
+         				{
+             				from port : B5
+             				to port   : T1
+             				path      : [55.68621283701397,111.60782979522162,55.68621283701397,121.60782979522162,55.68621283701397,136.86864699303834,156.55832842840132,136.86864699303834,156.55832842840132,152.1294641908551,156.55832842840132,162.1294641908551]
+        				}
+  				}
+    				Reject1 as "Reject"
+    				{
+         				type = normal
+         				from stage = "Apptitude"
+         				to stage = "Reject"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : R1
+             				to port   : B1
+             				path      : [-66.74780903684344,272.1660376929359,-56.747809036843435,272.1660376929359,156.55832842840132,272.1660376929359,156.55832842840132,247.9516658395063,156.55832842840132,223.7372939860767,156.55832842840132,213.7372939860767]
+        				}
+  				}
+    				Reject2 as "Reject"
+    				{
+         				type = normal
+         				from stage = "Accepted apptitude"
+         				to stage = "Rejected"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B4
+             				to port   : L1
+             				path      : [-236.45206075840682,398.886701469024,-236.45206075840682,408.886701469024,-64.57033604187934,408.886701469024,-64.57033604187934,380.1895998727144,41.1466998854857,380.1895998727144,51.1466998854857,380.1895998727144]
+        				}
+  				}
+    				Rejected as "Rejected"
+    				{
+         				type = normal
+         				from stage = "Apptitude"
+         				to stage = "Rejected"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B4
+             				to port   : T2
+             				path      : [-105.23784572639647,297.9699525905467,-105.23784572639647,307.9699525905467,-105.23784572639647,326.17781878282517,86.83673352328093,326.17781878282517,86.83673352328093,344.3856849751036,86.83673352328093,354.3856849751036]
+        				}
+  				}
+    				Selected_For_Apptitude as "Selected For Apptitude"
+    				{
+         				type = normal
+         				from stage = "Accept"
+         				to stage = "Apptitude"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T1
+             				path      : [-117.96248924271174,196.64710009485236,-117.96248924271174,206.64710009485236,-117.96248924271174,221.50461144508876,-148.72290076072602,221.50461144508876,-148.72290076072602,236.36212279532512,-148.72290076072602,246.36212279532512]
+        				}
+  				}
+    				shortlisted as "shortlisted"
+    				{
+         				type = normal
+         				from stage = "Apptitude"
+         				to stage = "Accepted apptitude"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [-119.732864071173,297.9699525905467,-119.732864071173,307.9699525905467,-119.732864071173,322.62441213217454,-260.78440515298803,322.62441213217454,-260.78440515298803,337.27887167380237,-260.78440515298803,347.27887167380237]
+        				}
+  				}
+        			}
+    			}
+    			empolyee_blue_print as "empolyee blue print"
+    			{
+        			type = Blueprint
+        			form = Empolyee_details
+        			start
+        			{
+            			start stage = "Empolyee details"
+            			chart data
+            			{
+                			from port : B
+                			to port   : T3
+                			position  : "0 0"
+                			path      : [27.849999999999994,36.84,27.849999999999994,46.84,27.849999999999994,48.42,27.849999999999994,48.42,27.849999999999994,50,27.849999999999994,60]
+            			}
+        			}
+        			stages
+        			{
+           			"Empolyee details"
+           			{
+               			chart data
+               			{
+                   			position : "-46.13852640884127 60"
+               			}
+           			}
+           			"Stage2"
+           			{
+               			chart data
+               			{
+                   			position : "-8 168.05"
+               			}
+           			}
+           			"Stage3"
+           			{
+               			chart data
+               			{
+                   			position : "-6 269.05"
+               			}
+           			}
+           			"stage 4"
+           			{
+               			chart data
+               			{
+                   			position : "-5 377.05"
+               			}
+           			}
+        			}
+        			transitions
+        			{
+    				department1 as "department"
+    				{
+         				type = normal
+         				from stage = "Empolyee details"
+         				to stage = "Stage2"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T2
+             				path      : [27.849999999999994,111.60782979522162,27.849999999999994,121.60782979522162,27.849999999999994,139.82891489761082,23.882034980568662,139.82891489761082,23.882034980568662,158.05,23.882034980568662,168.05]
+        				}
+  				}
+    				email as "email"
+    				{
+         				type = normal
+         				from stage = "Stage3"
+         				to stage = "stage 4"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [37.07305247085299,320.65782979522163,37.07305247085299,330.65782979522163,37.07305247085299,348.8539148976108,39.25605875747409,348.8539148976108,39.25605875747409,367.05,39.25605875747409,377.05]
+        				}
+  				}
+    				role as "role"
+    				{
+         				type = normal
+         				from stage = "Stage2"
+         				to stage = "Stage3"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+         				chart data
+         				{
+             				from port : B3
+             				to port   : T3
+             				path      : [35.07305247085299,219.65782979522163,35.07305247085299,229.65782979522163,35.07305247085299,244.35391489761082,37.07305247085299,244.35391489761082,37.07305247085299,259.05,37.07305247085299,269.05]
+        				}
+  				}
+        			}
+    			}
+		}
+
+		batchworkflow
+		{
+			import_
+			{
+    			display name = "import "
+    			type = batchworkflow
+    			form = Trip_details
+    			event = "On Import"
+    			batch size = 200
+    			status = active
+			}
+		}
+
+		payment	{
+			test1 as "test"
+			{
+				type =  payment
+				form = Fuel_Details
+				amount field = Cost_per_liter
+				on success
+				{
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : "zoho.loginuserid"
+								subject : "Payment Notification"
+								message : "<!doctype html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Email Templates</title>\n</head>\n<body>\n<table width=\"750\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n  <tr>\n    <td valign=\"top\" align=\"center\">\n   <div style=\" width:750px; padding:20px; font-family:Lato,Arial,Helvetica,sans-serif; font-size:14px; color:#000; text-align:left;\">\n          <div style=\"background:#33bc6e; height:76px; text-align:center; padding-top:20px; display:block\">\n            <div style=\"font-size:15px; color:#fff;padding-bottom:6px;\">Payment Received</div>\n            <div style=\"font-size:30px; color:#fff; \">${Cost_per_liter} INR</div> \n       </div>\n        <div style=\"padding:40px; background:#fbfbfb;\">\n        <div style=\"padding:0px 0 0 0; font-size:14px; color:#000; font-weight:bold;\">Dear ${zoho.loginuserid},</div>\n        <div style=\"padding:10px 0 70px 0; font-size:13px; color:#000; line-height:22px;\"> We’re delighted to let you know that your payment of ${Cost_per_liter} INR was successful. \n          Thank you for choosing us and we hope you had a great  experience. </div>\n        <div style=\"padding:40px 0 0 0; font-size:14px; color:#000;font-weight:bold;\">Regards,</div>\n        <div style=\"padding:8px 0 0 0; font-size:14px; color:#000;\">${zoho.adminuserid}</div>\n      </div>\n      <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n   	  </div>\n      </td>\n  </tr>\n</table>\n</body>\n</html>"
+							)
+						}
+						actions 
+						{
+						on load
+						(
+							sendmail
+												[
+													from :zoho.loginuserid
+													to :"harshinisekarv@gmail.com"
+													subject :"payment status"
+													message :"payment status approved"
+												]
+						)
+						}
+				}
+				on failure
+				{
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : "zoho.loginuserid"
+								subject : "Payment Notification"
+								message : "<html><head>\n<meta charset=\"UTF-8\">\n<title>Email Templates</title>\n</head>\n<body>\n<table width=\"750\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n  <tbody><tr>\n    <td valign=\"top\" align=\"center\">\n   <div style=\" width:750px; padding:20px; font-family:Lato,Arial,Helvetica,sans-serif; font-size:14px; color:#000; text-align:left;\">\n          <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n        <div style=\"padding:40px; background:#fbfbfb;\">\n        <div style=\"padding:0px 0 0 0; font-size:14px; color:#000; font-weight:bold;\">Dear ${zoho.loginuserid},</div>\n        <div style=\"padding:10px 0 70px 0; font-size:13px; color:#000; line-height:22px;\"> We’re sorry to let you know that your payment of ${Cost_per_liter} INR has failed. Please try again.</div>\n        <div style=\"padding:40px 0 0 0; font-size:14px; color:#000;font-weight:bold;\">Regards,</div>\n        <div style=\"padding:8px 0 0 0; font-size:14px; color:#000;\">${zoho.adminuserid}</div>\n      </div>\n      <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n      </div>\n      </td>\n  </tr>\n</tbody></table>\n</body>\n</html>"
+							)
+						}
+						actions 
+						{
+						on load
+						(
+							sendmail
+												[
+													from :zoho.loginuserid
+													to :"harshinisekarv@gmail.com"
+													subject :"payment status "
+													message :" you payment is rejected"
+												]
+						)
+						}
+				}
+			}
+
+			test2 as "test1"
+			{
+				type =  payment
+				form = Fuel_Details
+				amount field = Cost_per_liter
+				on success
+				{
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : "zoho.loginuserid"
+								subject : "Payment Notification"
+								message : "<!doctype html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Email Templates</title>\n</head>\n<body>\n<table width=\"750\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n  <tr>\n    <td valign=\"top\" align=\"center\">\n   <div style=\" width:750px; padding:20px; font-family:Lato,Arial,Helvetica,sans-serif; font-size:14px; color:#000; text-align:left;\">\n          <div style=\"background:#33bc6e; height:76px; text-align:center; padding-top:20px; display:block\">\n            <div style=\"font-size:15px; color:#fff;padding-bottom:6px;\">Payment Received</div>\n            <div style=\"font-size:30px; color:#fff; \">${Cost_per_liter} INR</div> \n       </div>\n        <div style=\"padding:40px; background:#fbfbfb;\">\n        <div style=\"padding:0px 0 0 0; font-size:14px; color:#000; font-weight:bold;\">Dear ${zoho.loginuserid},</div>\n        <div style=\"padding:10px 0 70px 0; font-size:13px; color:#000; line-height:22px;\"> We’re delighted to let you know that your payment of ${Cost_per_liter} INR was successful. \n          Thank you for choosing us and we hope you had a great  experience. </div>\n        <div style=\"padding:40px 0 0 0; font-size:14px; color:#000;font-weight:bold;\">Regards,</div>\n        <div style=\"padding:8px 0 0 0; font-size:14px; color:#000;\">${zoho.adminuserid}</div>\n      </div>\n      <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n   	  </div>\n      </td>\n  </tr>\n</table>\n</body>\n</html>"
+							)
+						}
+				}
+				on failure
+				{
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.adminuserid"
+								to : "zoho.loginuserid"
+								subject : "Payment Notification"
+								message : "<html><head>\n<meta charset=\"UTF-8\">\n<title>Email Templates</title>\n</head>\n<body>\n<table width=\"750\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n  <tbody><tr>\n    <td valign=\"top\" align=\"center\">\n   <div style=\" width:750px; padding:20px; font-family:Lato,Arial,Helvetica,sans-serif; font-size:14px; color:#000; text-align:left;\">\n          <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n        <div style=\"padding:40px; background:#fbfbfb;\">\n        <div style=\"padding:0px 0 0 0; font-size:14px; color:#000; font-weight:bold;\">Dear ${zoho.loginuserid},</div>\n        <div style=\"padding:10px 0 70px 0; font-size:13px; color:#000; line-height:22px;\"> We’re sorry to let you know that your payment of ${Cost_per_liter} INR has failed. Please try again.</div>\n        <div style=\"padding:40px 0 0 0; font-size:14px; color:#000;font-weight:bold;\">Regards,</div>\n        <div style=\"padding:8px 0 0 0; font-size:14px; color:#000;\">${zoho.adminuserid}</div>\n      </div>\n      <div style=\"height:2px; overflow:hidden;line-height:0px;background:#33bc6e;\"></div>\n      </div>\n      </td>\n  </tr>\n</tbody></table>\n</body>\n</html>"
+							)
+						}
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"admin"
+			{
+				name = "admin"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Show admin\n"
+				ModulePermissions
+				{
+					Vechicle_Docmuments
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Vechicle_Docmuments_Report={"View"}
+						}
+					}
+					Trip_details
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Vehicle_Details
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Vehicle_Details={"View"}
+						}
+					}
+					Empolyee_details
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Empolyee_Details={"View"}
+						}
+					}
+					Diver_Details
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Maintenance_details
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Fuel_Details
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Fuel_Details={"View"}
+						}
+					}
+					Dashboard
+					{
+						enabled = tab
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"employee"
+			{
+				name = "employee"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = " Employee details\n"
+				ModulePermissions
+				{
+					Vechicle_Docmuments
+					{
+						allFieldsVisible= true 
+					}
+					Trip_details
+					{
+						allFieldsVisible= true 
+					}
+					Vehicle_Details
+					{
+						allFieldsVisible= true 
+					}
+					Empolyee_details
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Empolyee_Details={"View"}
+						}
+					}
+					Diver_Details
+					{
+						allFieldsVisible= true 
+					}
+					Maintenance_details
+					{
+						allFieldsVisible= true 
+					}
+					Fuel_Details
+					{
+						allFieldsVisible= true 
+					}
+				}
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+					"employee"
+					{
+						description = ""
+					}
+				}
+			}
+	}
+
+
+	connections
+	{
+		zoho_books_connection1
+		(
+			displayname = "Zoho Books Connection1"
+			user access = true
+			connector = zohobooks
+			permissions = {"all_operations","create_account","create_bill","create_credit_note","create_custom_module_record","create_customer","create_customer_payment","create_delivery_challan","create_expense","create_invoice","create_item","create_journal","create_location","create_purchase_order","create_quote","create_recurring_bill","create_recurring_expense","create_retainer_invoice","create_sales_order","create_vendor","create_vendor_credit","create_vendor_payment","delete_bill","delete_credit_note","delete_customer","delete_customer_payment","delete_delivery_challan","delete_expense","delete_invoice","delete_item","delete_journal","delete_purchase_order","delete_quote","delete_recurring_bill","delete_recurring_expense","delete_retainer_invoice","delete_sales_order","delete_vendor_credit","delete_vendor_payment","get_account","get_all_accounts","get_all_bills","get_all_credit_notes","get_all_currencies","get_all_custom_module_records","get_all_custom_modules","get_all_customer_payments","get_all_customers","get_all_delivery_challans","get_all_expenses","get_all_invoices","get_all_items","get_all_journals","get_all_locations","get_all_organizations","get_all_projects","get_all_purchase_accounts","get_all_purchase_orders","get_all_quotes","get_all_recurring_bills","get_all_recurring_expenses","get_all_retainer_invoices","get_all_sales_accounts","get_all_sales_orders","get_all_states","get_all_stock_accounts","get_all_tax_authorities","get_all_taxes","get_all_tds_taxes","get_all_vendor_credits","get_all_vendor_payments","get_all_vendors","get_bill","get_credit_note","get_custom_module_record","get_customer","get_customer_payment","get_delivery_challan","get_expense","get_invoice","get_item","get_journal","get_purchase_order","get_quote","get_recurring_bill","get_recurring_expense","get_retainer_invoice","get_sales_order","get_vendor","get_vendor_credit","get_vendor_payment","search_accounts","search_bills","search_credit_notes","search_customer_payments","search_customers","search_expenses","search_invoices","search_items","search_journals","search_purchase_orders","search_quotes","search_recurring_bills","search_recurring_expenses","search_sales_orders","search_vendor_credits","search_vendor_payments","search_vendors","sync_customers","sync_invoices","sync_items","sync_purchase_orders","sync_quotes","sync_sales_orders","sync_vendors","update_account","update_bill","update_credit_note","update_custom_module_record","update_customer","update_customer_payment","update_delivery_challan","update_expense","update_invoice","update_item","update_journal","update_location","update_purchase_order","update_quote","update_recurring_bill","update_recurring_expense","update_retainer_invoice","update_sales_order","update_vendor","update_vendor_credit","update_vendor_payment"}
+		)
+		zoho_cliq_connection
+		(
+			displayname = "Zoho Cliq Connection"
+			user access = true
+			connector = zohochat
+			permissions = {"add_bot_to_channel","add_channel_members","add_reaction","add_team_members","add_user","all_bot_operations","all_channel_operations","all_database_operations","all_extension_operations","all_message_operations","all_reminder_operations","all_team_operations","approve_channel","archive_channel","assign_users_to_reminder","check_in","check_out","create_channel","create_record","create_reminder","create_team","delete_channel","delete_channel_member","delete_completed_reminders","delete_message","delete_multiple_channel_members","delete_multiple_reminders","delete_reaction","delete_record","delete_reminder","delete_team","delete_team_member","edit_message","export_channels","get_all_channel_members","get_all_channels","get_all_chat_members","get_all_chats","get_all_departments","get_all_messages","get_all_reactions","get_all_records","get_all_reminders","get_all_statuses","get_all_team_members","get_all_teams","get_all_user_layouts","get_all_user_teams","get_all_users","get_channel","get_message","get_pinned_message","get_record","get_reminder","get_remote_status","get_team","get_user","join_channel","leave_channel","leave_chat","mark_reminder_as_complete","mark_reminder_as_incomplete","mute_chat","pin_message","post_message_to_bot","post_message_to_channel","post_message_to_chat","post_message_to_user","reject_channel","remind_assignee","remind_multiple_assignees","schedule_message","share_file_in_channel","share_file_in_chat","share_file_with_bot","share_file_with_user","unarchive_channel","unassign_user_from_reminder","unmute_chat","unpin_message","update_channel","update_channel_member_role","update_channel_permissions","update_record","update_reminder","update_team","update_user","webhook_read_operation","webhook_update_operation"}
+		)
+		zoho_workdrive_connection
+		(
+			displayname = "Zoho WorkDrive Connection"
+			user access = true
+			connector = zoho_workdrive
+			permissions = {"abort_workflow_for_a_file_folder","add_comment","add_members_to_team_folder","all_file_operations","all_organization_operations","create_data_template","create_external_collection","create_group","create_label","create_share_link","create_split_page","create_team_folder","create_workflow","delete_collection","delete_comment","delete_data_template","delete_group","delete_label","delete_member_from_team_folder","delete_team_folder","delete_workflow","disable_collection","download_file","enable_collection","get_all_collections","get_all_comments","get_all_team_members","get_during_actions_for_an_instance_transition","get_file_details","get_group","get_label","get_my_user_details","get_share_link","get_shared_file","get_team_folder","get_workflow_instance","get_workflow_instances_for_a_workflow","perform_transition_for_a_workflow_instance","remove_file_access","rename_data_template","rename_file","rename_team_folder","search_file","share_file","start_workflow_for_a_file_folder","update_comment","update_group_name","update_label_name","update_share_link","update_team_name","update_workflow","upload_file"}
+		)
+		zoho_cliq_connection1
+		(
+			displayname = "zoho_cliq_connection"
+			connector = zohochat
+			permissions = {"add_bot_to_channel","add_channel_members","add_reaction","add_team_members","add_user","all_bot_operations","all_channel_operations","all_database_operations","all_extension_operations","all_message_operations","all_reminder_operations","all_team_operations","approve_channel","archive_channel","assign_users_to_reminder","check_in","check_out","create_channel","create_record","create_reminder","create_team","delete_channel","delete_channel_member","delete_completed_reminders","delete_message","delete_multiple_channel_members","delete_multiple_reminders","delete_reaction","delete_record","delete_reminder","delete_team","delete_team_member","edit_message","export_channels","get_all_channel_members","get_all_channels","get_all_chat_members","get_all_chats","get_all_departments","get_all_messages","get_all_reactions","get_all_records","get_all_reminders","get_all_statuses","get_all_team_members","get_all_teams","get_all_user_layouts","get_all_user_teams","get_all_users","get_channel","get_message","get_pinned_message","get_record","get_reminder","get_remote_status","get_team","get_user","join_channel","leave_channel","leave_chat","mark_reminder_as_complete","mark_reminder_as_incomplete","mute_chat","pin_message","post_message_to_bot","post_message_to_channel","post_message_to_chat","post_message_to_user","reject_channel","remind_assignee","remind_multiple_assignees","schedule_message","share_file_in_channel","share_file_in_chat","share_file_with_bot","share_file_with_user","unarchive_channel","unassign_user_from_reminder","unmute_chat","unpin_message","update_channel","update_channel_member_role","update_channel_permissions","update_record","update_reminder","update_team","update_user","webhook_read_operation","webhook_update_operation"}
+		)
+	}
+	web
+	{
+		forms
+		{
+			form Diver_Details
+			{
+				label placement = labelinplace
+			}
+			form Empolyee_details
+			{
+				label placement = labelinplace
+			}
+			form Fuel_Details
+			{
+				label placement = labelinplace
+			}
+			form Maintenance_details
+			{
+				label placement = labelinplace
+			}
+			form Roles
+			{
+				label placement = left
+			}
+			form Trip_details
+			{
+				label placement = labelinplace
+			}
+			form Vechicle_Docmuments
+			{
+				label placement = labelinplace
+			}
+			form Vehicle_Details
+			{
+				label placement = labelinplace
+			}
+		}
+		reports
+		{
+			report All_Vehicle_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Vehicle_No as "Vehicle No"
+								Vehicle_Type as "Vehicle Type "
+								Vehicle_ID as "Vehicle ID"
+								Vehicle_Model as "Vehicle Model"
+								Vehicle as " Vehicle Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Vehicle_No as "Vehicle No"
+								Vehicle_Type as "Vehicle Type "
+								Vehicle_Model as "Vehicle Model"
+								Purchase_Date as "Purchase  Date "
+								Fuel_Type as "Fuel Type"
+								Current_Odameter as "Current  Odometer"
+								Vehicle as " Vehicle Status"
+								Fuel_consumption1 as "Fuel consumption "
+								Meliage
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Diver_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -2
+	     				recordsperrow = 2
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Diver_Name as "Diver Name "
+								Diver_ID as "Diver ID"
+								Phone_Number as "Phone"
+								Email
+								Location
+								Status
+								demo as "demo "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Diver_Name as "Diver Name "
+								Diver_ID as "Diver ID"
+								Phone_Number as "Phone"
+								Email
+								Location
+								License_Number as "License Number"
+								License_Type as "License Type"
+								License_issue_date as "License issue date"
+								License_Expiry as "License Expiry"
+								Status
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Fuel_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Vehicle as "Vehicle   Type"
+								fuel_date as "fuel date"
+								vehicle_NO as "vehicle NO"
+								Vehicle_Model as "Vehicle  Model"
+								Fuel_Type as "Fuel Type"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock2
+						(
+		     				title = "Vehicle   Type"
+		     				related field = Vehicle
+							fields
+							(
+								Vehicle_ID as "Vehicle ID"
+								Vehicle_No as "Vehicle No"
+								Vehicle_Model as "Vehicle Model"
+								Vehicle_Type as "Vehicle Type "
+								Vehicle as " Vehicle Status"
+								Fuel_Type as "Fuel Type"
+								Purchase_Date as "Purchase  Date "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Maintenance_details_Report
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Vehicle_NO as "Vehicle NO"
+								Maintenance_type as "Maintenance type"
+								Odometer
+								Cost
+								Service_Date as "Service Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Vehicle_NO as "Vehicle NO"
+								Maintenance_type as "Maintenance type"
+								Service_Date as "Service Date"
+								Cost
+								next_Service_Odometer as "next Service  Odometer"
+								Odometer
+								Service_Provider as "Service Provider"
+								Next_Service as "Next Service "
+								Status
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Trip_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 10
+						datablock1
+						(
+							layout type = 34
+							fields
+							(
+								Empolyee_ID as "Empolyee ID"
+								Employee_name as "Employee  name"
+								Empolyee_ID.Phone_Number as "Phone"
+								Empolyee_ID.Employee_image as "Employee image"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Empolyee_ID as "Empolyee ID"
+								Employee_name as "Employee  name"
+								Trip_date as "Trip  date"
+								Trip_NO as "Trip NO"
+								Distance_Covered as "Distance  Covered"
+								Vehicle_Type as "Vehicle Type"
+								Vehicle_No as "Vehicle No"
+								Purpose
+								Source
+								Destination
+								trip_Status as "trip  Status"
+								Start_Odometer as "Start Odometer"
+								End_Odometer as "End Odometer"
+							)
+						)
+						datablock2
+						(
+		     				title = "Empolyee ID"
+		     				related field = Empolyee_ID
+							fields
+							(
+								Employee_name as "Employee name "
+								Employee_iD as "Employee iD"
+								Phone_Number as "Phone"
+								Email
+								Employee_image as "Employee image"
+								Department
+								Auto_Number as "Auto Number"
+							)
+						)
+						datablock3
+						(
+		     				title = "Vehicle Type"
+		     				related field = Vehicle_Type
+							fields
+							(
+								Vehicle_ID as "Vehicle ID"
+								Vehicle_No as "Vehicle No"
+								Vehicle_Model as "Vehicle Model"
+								Vehicle_Type as "Vehicle Type "
+								Vehicle as " Vehicle Status"
+								Fuel_Type as "Fuel Type"
+								Purchase_Date as "Purchase  Date "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Empolyee_Details
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Employee_name as "Employee name "
+								Phone_Number as "Phone"
+								Email
+								Employee_iD as "Employee iD"
+								Employee_image as "Employee image"
+								Department
+								Roles
+								Modified_User as "Modified User"
+								Added_User as "Added User"
+								Added_Time as "Added Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								Employee_name as "Employee name "
+								Phone_Number as "Phone"
+								Email
+								Employee_iD as "Employee iD"
+								Employee_image as "Employee image"
+								Department
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Vechicle_Docmuments_Report
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 2
+						datablock1
+						(
+							layout type = 4
+							fields
+							(
+								Vehicle_No.Vehicle_Type as "Vehicle Type "
+								Vehicle_No as "Vehicle No"
+								Insurance_Expiry as "Insurance Expiry"
+								Pollution_Certificate_Expiry as "Pollution Certificate Expiry"
+								Registration_Expiry as "Registration Expiry"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 2
+						datablock1
+						(
+							fields
+							(
+								Vehicle_No as "Vehicle No"
+								Vehicle_No.Vehicle_ID as "Vehicle ID"
+								Vehicle_No.Vehicle_No as "Vehicle No"
+								Vehicle_No.Vehicle_Model as "Vehicle Model"
+								Vehicle_No.Vehicle_Type as "Vehicle Type "
+							)
+						)
+						datablock2
+						(
+		     				title = "Vehicle No"
+		     				related field = Vehicle_No
+							fields
+							(
+								Vehicle_ID as "Vehicle ID"
+								Vehicle_No as "Vehicle No"
+								Vehicle_Model as "Vehicle Model"
+								Vehicle_Type as "Vehicle Type "
+								Vehicle as " Vehicle Status"
+								Fuel_Type as "Fuel Type"
+								Purchase_Date as "Purchase  Date "
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Roles
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Role
+								Dpet as "Department"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Role
+								Dpet as "Department"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Masters
+			{
+				displayname = "Masters"
+				icon = "objects-spaceship"
+
+				section Vehicle_Details
+				{
+					displayname = "Vehicle Details"
+					icon = "transportation-car"
+					form  Vehicle_Details
+					{
+						icon = "transportation-car"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Diver_Details
+				{
+					displayname = "Diver Details"
+					icon = "users-2-contacts-44"
+					form  Diver_Details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Fuel_Details
+				{
+					displayname = "Fuel Details"
+					icon = "envir-fuel-electric"
+					form  Fuel_Details
+					{
+						icon = "envir-fuel-electric"
+					}
+				}
+				section Maintenance_details
+				{
+					displayname = "Maintenance  details"
+					icon = "users-2-contacts-44"
+					form  Maintenance_details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Trip_Details
+				{
+					displayname = "Trip Details"
+					icon = "transportation-plane-17"
+					form  Trip_details
+					{
+						icon = "transportation-plane-17"
+					}
+				}
+				section Vechicle_Docmuments
+				{
+					displayname = "Vechicle Docmuments"
+					icon = "tech-desktop"
+					form  Vechicle_Docmuments
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Empolyee_Details
+				{
+					displayname = "Empolyee Details"
+					icon = "users-2-contacts-44"
+					form  Empolyee_details
+					{
+						icon = "users-2-contacts-44"
+					}
+				}
+				section Roles
+				{
+					displayname = "Roles"
+					icon = "media-1-play-69"
+					form  Roles
+					{
+						icon = "media-1-play-69"
+					}
+					report All_Roles
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			space Reports
+			{
+				displayname = "Reports"
+				icon = "objects-spaceship"
+
+					report All_Vehicle_Details
+					{
+						icon = "tech-desktop"
+					}
+					report All_Diver_Details
+					{
+						icon = "tech-desktop"
+					}
+					report All_Fuel_Details
+					{
+						icon = "tech-desktop"
+					}
+					report Maintenance_details_Report
+					{
+						icon = "tech-desktop"
+					}
+					report All_Trip_Details
+					{
+						icon = "tech-desktop"
+					}
+					report All_Empolyee_Details
+					{
+						icon = "tech-desktop"
+					}
+					report Vechicle_Docmuments_Report
+					{
+						icon = "tech-desktop"
+					}
+			}
+			space Dashboard
+			{
+				displayname = "Dashboard"
+				icon = "objects-spaceship"
+
+				section Dashboard
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			layout
+			{
+				theme = "theme_12"
+			}
+			font = "lato"
+			color options
+			{
+				name = "custom_color"
+				brand color = "#2eb79f"
+				navigation background color = "#1d508e"
+				type = "custom"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Diver_Details
+			{
+				label placement = auto
+			}
+			form Empolyee_details
+			{
+				label placement = auto
+			}
+			form Fuel_Details
+			{
+				label placement = auto
+			}
+			form Maintenance_details
+			{
+				label placement = auto
+			}
+			form Roles
+			{
+				label placement = auto
+			}
+			form Trip_details
+			{
+				label placement = auto
+			}
+			form Vechicle_Docmuments
+			{
+				label placement = auto
+			}
+			form Vehicle_Details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Diver_Details
+			{
+				label placement = auto
+			}
+			form Empolyee_details
+			{
+				label placement = auto
+			}
+			form Fuel_Details
+			{
+				label placement = auto
+			}
+			form Maintenance_details
+			{
+				label placement = auto
+			}
+			form Roles
+			{
+				label placement = auto
+			}
+			form Trip_details
+			{
+				label placement = auto
+			}
+			form Vechicle_Docmuments
+			{
+				label placement = auto
+			}
+			form Vehicle_Details
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				type = "custom"
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
